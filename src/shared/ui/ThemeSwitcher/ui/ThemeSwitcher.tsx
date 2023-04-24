@@ -1,15 +1,14 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import SunIcon from 'shared/assets/icons/sun-icon.svg';
+import MoonIcon from 'shared/assets/icons/moon-icon.svg';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import styles from './ThemeSwitcher.module.scss';
-import {Theme, useTheme} from "app/providers/ThemeProvider";
-import SunIcon from 'shared/assets/icons/sun-icon.svg'
-import MoonIcon from 'shared/assets/icons/moon-icon.svg'
-import {Button, ThemeButton} from "shared/ui/Button/Button";
-
 
 interface ThemeSwitcherProps {
     className?: string;
 }
-export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
+export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
