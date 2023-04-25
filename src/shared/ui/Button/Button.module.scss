@@ -1,14 +1,14 @@
 .button {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .clear {
-  padding: 0;
-  background: none;
-  border: none;
-  outline: none;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
 }
 
 .invert {
-  color: var(--primary-color-invert);
+    color: var(--primary-color-invert);
 }

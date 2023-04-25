@@ -1,10 +1,10 @@
 .sidebar {
-  height: calc(100vh - var(--navbar-height));
-  background: var(--bg-color-invert);
-  width: var(--sidebar-width);
-  transition: width .2s;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--navbar-height));
+    background: var(--bg-color-invert);
+    transition: width 0.2s;
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed);
+    width: var(--sidebar-width-collapsed);
 }
