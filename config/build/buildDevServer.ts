@@ -4,7 +4,7 @@ import { BuildOptions } from './types/config';
 export default function ({ port }: BuildOptions): DevServerConfiguration {
     return {
         port,
-        open: true,
+        // open: true,
         historyApiFallback: true,
         hot: true,
     };
