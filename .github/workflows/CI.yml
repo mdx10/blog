@@ -11,16 +11,15 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node: [17.x]
-    # The runners that the job will run on
     runs-on: ${{ matrix.os }}
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+        node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: yarn install
 
