@@ -1,0 +1,33 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  integration:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [17.x]
+    # The runners that the job will run on
+    runs-on: ${{ matrix.os }}
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run ESLint
+        run: yarn lint:ts
+
+      - name: Run Stylelint
+        run: yarn stylelint:scss
+
+      - name: Run unit tests
+        run: yarn test:unit
