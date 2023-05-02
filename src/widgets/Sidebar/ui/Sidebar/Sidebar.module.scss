@@ -3,8 +3,25 @@
     height: calc(100vh - var(--navbar-height));
     background: var(--bg-color-invert);
     transition: width 0.2s;
+    position: relative;
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+}
+
+.collapseButton {
+    position: absolute;
+    right: 17px;
+    bottom: 50px;
+}
+
+.buttonIcon {
+    fill: var(--primary-color-invert);
+    transform: rotate(180deg);
+    transition: 0.2s;
+}
+
+.buttonIconCollapsed {
+    transform: rotate(0);
 }

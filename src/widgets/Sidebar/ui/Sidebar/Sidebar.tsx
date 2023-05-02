@@ -1,14 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useState } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
+import ChevroneIcon from 'shared/assets/icons/right-chevron.svg';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;
 }
 export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => setCollapsed((prev) => !prev);
@@ -20,9 +21,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
-                theme={ThemeButton.INVERT}
+                theme={ThemeButton.CLEAR}
+                className={styles.collapseButton}
+                size={SizeButton.L}
+                square
             >
-                {t('collapseButton')}
+                <ChevroneIcon
+                    className={classNames(
+                        styles.buttonIcon,
+                        { [styles.buttonIconCollapsed]: collapsed },
+                    )}
+                />
             </Button>
         </div>
     );
