@@ -1,6 +1,8 @@
 .navbar {
     width: 100%;
+    height: var(--navbar-height);
     box-shadow: inset 0 -1px 0 0 #e5e7eb;
+    background: var(--accent-color-invert);
 }
 
 .container {
@@ -12,7 +14,7 @@
     padding: 0 15px;
 }
 
-.nav {
+.switchers {
     display: flex;
     gap: 16px;
     align-items: center;

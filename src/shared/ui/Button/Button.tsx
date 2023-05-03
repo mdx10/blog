@@ -4,7 +4,8 @@ import styles from './Button.module.scss';
 
 export enum ThemeButton {
     CLEAR = 'clear',
-    INVERT = 'invert'
+    INVERT = 'invert',
+    ACCENT = 'accent',
 }
 
 export enum SizeButton {
@@ -13,11 +14,11 @@ export enum SizeButton {
     XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;
     square?: boolean;
-    size?: string;
+    size?: SizeButton;
 }
 export const Button: FC<ButtonProps> = (props) => {
     const {

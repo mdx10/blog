@@ -4,6 +4,7 @@
     background: var(--bg-color-invert);
     transition: width 0.2s;
     position: relative;
+    padding: 16px;
 }
 
 .collapsed {
@@ -24,4 +25,31 @@
 
 .buttonIconCollapsed {
     transform: rotate(0);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navIcon {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+}
+
+.navLink {
+    height: 40px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+    border-radius: 5px;
+
+    &:hover {
+        color: #fff;
+        background: var(--accent-color-invert);
+    }
 }

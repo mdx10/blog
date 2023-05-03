@@ -6,7 +6,8 @@ import styles from './AppLink.module.scss';
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    ACCENT = 'accent'
+    ACCENT = 'accent',
+    INVERT = 'invert',
 }
 
 interface AppLinkProps extends LinkProps {

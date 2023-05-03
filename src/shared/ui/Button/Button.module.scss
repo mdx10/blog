@@ -12,6 +12,12 @@
 
 .invert {
     color: var(--primary-color-invert);
+    background: var(--bg-color-invert);
+}
+
+.accent {
+    color: var(--primary-color-invert);
+    background: var(--accent-color);
 }
 
 .square {
