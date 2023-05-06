@@ -21,8 +21,8 @@
 .content {
     width: 50%;
     padding: 20px;
-    background-color: #30323b;
-    color: #fff;
+    background-color: var(--bg-color-invert);
+    color: var(--primary-color-invert);
     border-radius: 8px;
 }
 
