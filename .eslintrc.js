@@ -41,6 +41,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'no-param-reassign': 'off',
         'max-len': ['warn', {
             ignoreComments: true,
             code: 100,
