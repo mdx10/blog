@@ -2,8 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -11,7 +11,8 @@ interface NavbarProps {
 }
 export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const onToggleModal = () => setIsAuthModal((prev) => !prev);
+    const onCloseModal = () => setIsAuthModal(false);
+    const onOpenModal = () => setIsAuthModal(true);
     return (
         <header className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.container}>
@@ -19,11 +20,8 @@ export const Navbar = ({ className }: NavbarProps) => {
                     <ThemeSwitcher />
                     <LangSwitcher />
                 </div>
-                <Button theme={ThemeButton.CLEAR} onClick={onToggleModal}>Войти</Button>
-                <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolore doloremque explicabo iure non
-                    omnis, quos ratione sequi ullam vel!
-                </Modal>
+                <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>Войти</Button>
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             </div>
         </header>
     );
