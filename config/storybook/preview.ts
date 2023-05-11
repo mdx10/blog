@@ -16,16 +16,16 @@ const preview: Preview = {
         theme: {
             name: 'Theme',
             description: 'Global theme for components',
-            defaultValue: 'light',
+            defaultValue: 'app-light-theme',
             toolbar: {
                 items: [
                     {
-                        value: 'light',
+                        value: 'app-light-theme',
                         title: 'Light (default)',
                         icon: 'sun',
                     },
                     {
-                        value: 'dark',
+                        value: 'app-dark-theme',
                         title: 'Dark',
                         icon: 'moon',
                     },
