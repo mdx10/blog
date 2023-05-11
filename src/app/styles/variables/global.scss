@@ -1,6 +1,6 @@
 :root {
     --font-family-main:
-        inter var,
+        "Inter var",
         ui-sans-serif,
         system-ui,
         -apple-system,
@@ -35,4 +35,5 @@
 
     // Colors
     --overlay-color: rgb(0 0 0 / 60%);
+    --input-placeholder-color: #9ca3af;
 }

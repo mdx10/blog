@@ -7,25 +7,32 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
-    autofocus?: boolean;
+    theme?: string;
 }
+
+export enum ThemeInput {
+    INVERT = 'invert',
+}
+
 export const Input = memo((props: InputProps) => {
     const {
         className,
         value,
         onChange,
         type = 'text',
+        theme,
         ...otherProps
     } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
     return (
-        <div className={classNames(styles.root, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <input
                 value={value}
                 onChange={onChangeHandler}
                 type={type}
+                className={classNames(styles.input, {}, [styles[theme]])}
                 {...otherProps}
             />
         </div>

@@ -7,4 +7,9 @@
     --primary-color-invert: #e2e8f0;
     --secondary-color-invert: #94a3b8;
     --accent-color-invert: #38bdf8;
+    --input-shadow: rgb(15 23 42 / 5%) 0 0 0 1px;
+    --input-shadow-invert: rgb(226 232 240 / 20%) 0 0 0 1px;
+    --input-shadow-focus: var(--accent-color) 0 0 0 2px;
+    --bg-input-color: #fff;
+    --bg-input-color-invert: #363841;
 }
