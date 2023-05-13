@@ -75,6 +75,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "1.8.0",
     "@types/react-router-dom": "5.3.3",
+    "axios": "^1.4.0",
     "file-loader": "6.2.0",
     "i18next": "21.6.11",
     "i18next-browser-languagedetector": "6.1.3",
