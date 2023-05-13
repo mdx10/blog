@@ -42,6 +42,7 @@ export default {
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
         '.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
+        '^axios$': require.resolve('axios'),
     },
     globals: {
         __IS_DEV__: true,
