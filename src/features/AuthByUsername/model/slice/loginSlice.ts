@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { LoginSchema } from '../types/loginSchema';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 
-const initialState: LoginSchema = {
+export const initialState: LoginSchema = {
     username: '',
     password: '',
     isLoading: false,
