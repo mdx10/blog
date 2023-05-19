@@ -14,11 +14,11 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
     async (authData, thunkAPI) => {
         try {
             const response = await axios.post(`${BASE_URL}/login`, authData);
-            thunkAPI.dispatch(userActions.setAuthData(response.data));
             if (!response.data) throw new Error(response.statusText);
+            thunkAPI.dispatch(userActions.setAuthData(response.data));
             return response.data;
         } catch (e) {
-            console.error(e);
+            console.log(e);
             return thunkAPI.rejectWithValue('error');
         }
     },
