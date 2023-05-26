@@ -25,32 +25,6 @@
     transition: 0.2s;
 }
 
-.navIcon {
-    width: 24px;
-    height: 24px;
-    fill: currentcolor;
-    flex-shrink: 0;
-}
-
-.navLink {
-    height: 40px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color, background-color 0.2s;
-    border-radius: 5px;
-
-    &:hover {
-        opacity: 0.8;
-    }
-}
-
-.navLink.navLinkActive {
-    color: #fff;
-    background: var(--accent-color-invert);
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
     padding: 0;
@@ -61,19 +35,5 @@
 
     .buttonIcon {
         transform: rotate(0);
-    }
-
-    .navLink {
-        width: var(--sidebar-width-collapsed);
-        height: var(--sidebar-width-collapsed);
-        justify-content: center;
-        border-radius: 0;
-        box-shadow: inset 0 -1px 0 0 rgb(218 218 218 / 70%);
-
-        span {
-            visibility: hidden;
-            width: 0;
-            position: absolute;
-        }
     }
 }

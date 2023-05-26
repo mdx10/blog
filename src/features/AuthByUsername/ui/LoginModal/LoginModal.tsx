@@ -17,7 +17,7 @@ export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (
     >
         {isOpen && (
             <Suspense fallback={<Loader theme={LoaderTheme.INVERT} />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         )}
     </Modal>
