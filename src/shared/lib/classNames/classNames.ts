@@ -2,7 +2,7 @@ type Mods = Record<string, string | boolean>
 export const classNames = (
     cls: string,
     mods: Mods = {},
-    additional: string[] = [],
+    additional: Array<string | undefined> = [],
 ): string => [
     cls,
     ...additional.filter(Boolean),

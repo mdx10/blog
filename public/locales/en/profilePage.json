@@ -1,3 +1,5 @@
 {
-  "profilePage": "Profile"
+  "title": "Profile",
+  "profilePage": "Profile",
+  "edit": "Edit"
 }

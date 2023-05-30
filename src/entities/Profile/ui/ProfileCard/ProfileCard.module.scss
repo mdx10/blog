@@ -1,0 +1,17 @@
+.root {
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+    width: 500px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
