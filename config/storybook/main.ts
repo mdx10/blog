@@ -47,18 +47,20 @@ const config: StorybookConfig = {
         autodocs: 'tag',
     },
     webpackFinal: async (config) => {
-        config.resolve.modules.push(paths.src);
-        config.resolve.extensions.push('.ts', '.tsx');
+        config!.resolve!.modules!.push(paths.src);
+        config!.resolve!.extensions!.push('.ts', '.tsx');
         // eslint-disable-next-line no-param-reassign
-        config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+        const rules = config.module!.rules as RuleSetRule[];
+        // @ts-ignore
+        config!.module!.rules = rules.map((rule) => {
             if (/svg/.test(rule.test as string)) {
                 return { ...rule, exclude: /\.svg$/i };
             }
             return rule;
         });
-        config.module.rules.push(cssLoader, svgLoader);
+        config!.module!.rules!.push(cssLoader, svgLoader);
         // @ts-ignore
-        config.plugins.push(new DefinePlugin({
+        config!.plugins!.push(new DefinePlugin({
             __IS_DEV__: true,
             __API__: '',
         }));

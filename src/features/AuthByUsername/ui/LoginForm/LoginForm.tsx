@@ -39,7 +39,7 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
     const onSubmit = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess();
+            onSuccess?.();
         }
     }, [dispatch, username, password, onSuccess]);
 

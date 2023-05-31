@@ -4,6 +4,7 @@ import styles from './Input.module.scss';
 
 export enum ThemeInput {
     INVERT = 'invert',
+    PRIMARY = 'primary',
 }
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -20,7 +21,7 @@ export const Input = memo((props: InputProps) => {
         value,
         onChange,
         type = 'text',
-        theme,
+        theme = ThemeInput.PRIMARY,
         ...otherProps
     } = props;
 

@@ -15,7 +15,6 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
             const response = await extra.api.post('/login', authData);
             if (!response.data) throw new Error(response.statusText);
             dispatch(userActions.setAuthData(response.data));
-            extra.navigate('/profile');
             return response.data;
         } catch (e) {
             console.log(e);
