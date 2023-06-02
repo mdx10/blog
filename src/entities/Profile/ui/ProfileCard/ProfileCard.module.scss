@@ -4,14 +4,14 @@
     width: 500px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
 .data {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

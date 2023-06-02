@@ -10,9 +10,10 @@ export enum ThemeInput {
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     theme?: ThemeInput;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -22,9 +23,9 @@ export const Input = memo((props: InputProps) => {
         onChange,
         type = 'text',
         theme = ThemeInput.PRIMARY,
+        readonly,
         ...otherProps
     } = props;
-
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
     return (
@@ -34,6 +35,7 @@ export const Input = memo((props: InputProps) => {
                 onChange={onChangeHandler}
                 type={type}
                 className={classNames(styles.input, {}, [styles[theme]])}
+                readOnly={readonly}
                 {...otherProps}
             />
         </div>

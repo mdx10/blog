@@ -1,5 +1,11 @@
 {
   "title": "Profile",
   "profilePage": "Profile",
-  "edit": "Edit"
+  "edit": "Edit",
+  "fetchError": {
+    "desc": "Try refreshing the page",
+    "title": "Error"
+  },
+  "cancel": "cancel",
+  "save": "save"
 }
