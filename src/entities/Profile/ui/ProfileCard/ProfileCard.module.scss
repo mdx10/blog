@@ -4,6 +4,10 @@
     width: 500px;
 }
 
+.editing {
+    border: 2px solid var(--primary-color);
+}
+
 .data {
     display: flex;
     flex-direction: column;
@@ -11,6 +15,12 @@
 }
 
 .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarWrap {
     display: flex;
     justify-content: center;
     align-items: center;

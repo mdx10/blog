@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Profile } from '../../model/types/profile';
 import styles from './ProfileCard.module.scss';
 
@@ -15,6 +16,8 @@ interface ProfileCardProps {
     onChangeLastname?: (value: string) => void;
     onChangeCity?: (value: string) => void;
     onChangeAge?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
 
 }
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -29,6 +32,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeLastname,
         onChangeCity,
         onChangeAge,
+        onChangeUsername,
+        onChangeAvatar,
     } = props;
 
     if (isLoading) {
@@ -49,8 +54,19 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <div className={classNames(styles.root, {}, [className])}>
+        <div className={classNames(styles.root, { [styles.editing]: !readonly }, [className])}>
             <div className={styles.data}>
+                {data?.avatar && (
+                    <div className={styles.avatarWrap}>
+                        <Avatar src={data.avatar} />
+                    </div>
+                )}
+                <Input
+                    value={data?.username}
+                    placeholder={t('form.username')}
+                    onChange={onChangeUsername}
+                    readonly={readonly}
+                />
                 <Input
                     value={data?.firstname}
                     placeholder={t('form.firstname')}
@@ -74,6 +90,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     type="number"
                     placeholder={t('form.age')}
                     onChange={onChangeAge}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.avatar}
+                    placeholder={t('form.avatar')}
+                    onChange={onChangeAvatar}
                     readonly={readonly}
                 />
             </div>

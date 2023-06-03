@@ -31,33 +31,35 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(styles.root, {}, [className])}>
             <h1>{t('title')}</h1>
-            {
-                readonly
-                    ? (
-                        <Button
-                            theme={ThemeButton.ACCENT}
-                            onClick={onEdit}
-                        >
-                            {t('edit')}
-                        </Button>
-                    )
-                    : (
-                        <>
+            <div className={styles.buttons}>
+                {
+                    readonly
+                        ? (
                             <Button
                                 theme={ThemeButton.ACCENT}
-                                onClick={onCancelEdit}
+                                onClick={onEdit}
                             >
-                                {t('cancel')}
+                                {t('edit')}
                             </Button>
-                            <Button
-                                theme={ThemeButton.ACCENT}
-                                onClick={onSaveEdit}
-                            >
-                                {t('save')}
-                            </Button>
-                        </>
-                    )
-            }
+                        )
+                        : (
+                            <>
+                                <Button
+                                    theme={ThemeButton.INVERT}
+                                    onClick={onCancelEdit}
+                                >
+                                    {t('cancel')}
+                                </Button>
+                                <Button
+                                    theme={ThemeButton.ACCENT}
+                                    onClick={onSaveEdit}
+                                >
+                                    {t('save')}
+                                </Button>
+                            </>
+                        )
+                }
+            </div>
         </div>
     );
 };
