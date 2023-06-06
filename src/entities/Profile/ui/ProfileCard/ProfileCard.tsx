@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import { Profile } from '../../model/types/profile';
 import styles from './ProfileCard.module.scss';
 
@@ -18,6 +20,8 @@ interface ProfileCardProps {
     onChangeAge?: (value: string) => void;
     onChangeUsername?: (value: string) => void;
     onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (value: Currency) => void;
+    onChangeCountry?: (value: Country) => void;
 
 }
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -34,6 +38,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAge,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
     } = props;
 
     if (isLoading) {
@@ -96,6 +102,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     value={data?.avatar}
                     placeholder={t('form.avatar')}
                     onChange={onChangeAvatar}
+                    readonly={readonly}
+                />
+                <CurrencySelect
+                    value={data?.currency}
+                    placeholder={t('form.currency')}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    value={data?.country}
+                    placeholder={t('form.currency')}
+                    onChange={onChangeCountry}
                     readonly={readonly}
                 />
             </div>
