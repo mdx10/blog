@@ -2,7 +2,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import {
     fetchProfileData,
     getProfileError, getProfileForm,
-    getProfileIsLoading, getProfileReadonly, profileActions,
+    getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions,
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
@@ -28,6 +28,7 @@ const ProfilePage = () => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -68,6 +69,7 @@ const ProfilePage = () => {
                 <ProfileCard
                     data={formData}
                     error={error}
+                    validateErrors={validateErrors}
                     isLoading={isLoading}
                     readonly={readonly}
                     onChangeFirstname={onChangeFirstname}

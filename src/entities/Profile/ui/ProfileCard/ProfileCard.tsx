@@ -5,7 +5,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { Profile } from '../../model/types/profile';
+import { Profile, ValidateProfileError } from '../../model/types/Profile';
 import styles from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -14,6 +14,7 @@ interface ProfileCardProps {
     error?: string;
     isLoading?: boolean;
     readonly?: boolean;
+    validateErrors?: ValidateProfileError[];
     onChangeFirstname?: (value: string) => void;
     onChangeLastname?: (value: string) => void;
     onChangeCity?: (value: string) => void;
@@ -32,6 +33,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         isLoading,
         data,
         readonly,
+        validateErrors,
         onChangeFirstname,
         onChangeLastname,
         onChangeCity,
@@ -58,6 +60,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </div>
         );
     }
+
+    const validateErrorsTranslate = {
+        [ValidateProfileError.SERVER_ERROR]: t('errors.serverError'),
+        [ValidateProfileError.NO_DATA]: t('errors.noData'),
+        [ValidateProfileError.INCORRECT_AGE]: t('errors.incorrectAge'),
+        [ValidateProfileError.INCORRECT_CITY]: t('errors.incorrectCity'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('errors.incorrectUserData'),
+    };
 
     return (
         <div className={classNames(styles.root, { [styles.editing]: !readonly }, [className])}>
@@ -116,6 +126,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeCountry}
                     readonly={readonly}
                 />
+            </div>
+            <div>
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <p key={err}>{validateErrorsTranslate[err]}</p>
+                ))}
             </div>
         </div>
     );
