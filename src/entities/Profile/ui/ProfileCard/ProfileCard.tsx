@@ -62,11 +62,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     const validateErrorsTranslate = {
-        [ValidateProfileError.SERVER_ERROR]: t('errors.serverError'),
-        [ValidateProfileError.NO_DATA]: t('errors.noData'),
-        [ValidateProfileError.INCORRECT_AGE]: t('errors.incorrectAge'),
-        [ValidateProfileError.INCORRECT_CITY]: t('errors.incorrectCity'),
-        [ValidateProfileError.INCORRECT_USER_DATA]: t('errors.incorrectUserData'),
+        [ValidateProfileError.SERVER_ERROR]: t('validateErrors.serverError'),
+        [ValidateProfileError.NO_DATA]: t('validateErrors.noData'),
+        [ValidateProfileError.INCORRECT_AGE]: t('validateErrors.incorrectAge'),
+        [ValidateProfileError.INCORRECT_CITY]: t('validateErrors.incorrectCity'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('validateErrors.incorrectUserData'),
     };
 
     return (
