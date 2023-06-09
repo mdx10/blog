@@ -49,18 +49,33 @@ export const Select = memo((props: SelectProps) => {
         </option>
     )), [options]);
 
+    if (label) {
+        return (
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label className={classNames(styles.label, {}, [className])}>
+                {label}
+                <select
+                    className={classNames(styles.select, {}, [styles[theme]])}
+                    value={value}
+                    onChange={onChangeHandler}
+                    placeholder={placeholder}
+                    disabled={readonly}
+                >
+                    {optionsList}
+                </select>
+            </label>
+        );
+    }
+
     return (
-        <div className={classNames(styles.root, {}, [className, styles[theme]])}>
-            {label && <span className={styles.label}>{label}</span>}
-            <select
-                className={styles.select}
-                value={value}
-                onChange={onChangeHandler}
-                placeholder={placeholder}
-                disabled={readonly}
-            >
-                {optionsList}
-            </select>
-        </div>
+        <select
+            className={classNames(styles.select, {}, [className, styles[theme]])}
+            value={value}
+            onChange={onChangeHandler}
+            placeholder={placeholder}
+            disabled={readonly}
+        >
+            {optionsList}
+        </select>
     );
 });

@@ -14,6 +14,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     theme?: ThemeInput;
     readonly?: boolean;
+    label?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,20 +25,36 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         theme = ThemeInput.PRIMARY,
         readonly,
+        label,
         ...otherProps
     } = props;
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
+    if (label) {
+        return (
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label className={styles.label}>
+                {label}
+                <input
+                    value={value}
+                    onChange={onChangeHandler}
+                    type={type}
+                    className={classNames(styles.input, {}, [className, styles[theme]])}
+                    readOnly={readonly}
+                    {...otherProps}
+                />
+            </label>
+        );
+    }
+
     return (
-        <div className={classNames('', {}, [className])}>
-            <input
-                value={value}
-                onChange={onChangeHandler}
-                type={type}
-                className={classNames(styles.input, {}, [styles[theme]])}
-                readOnly={readonly}
-                {...otherProps}
-            />
-        </div>
+        <input
+            value={value}
+            onChange={onChangeHandler}
+            type={type}
+            className={classNames(styles.input, {}, [className, styles[theme]])}
+            readOnly={readonly}
+            {...otherProps}
+        />
     );
 });

@@ -1,11 +1,52 @@
 {
   "title": "Profile",
   "profilePage": "Profile",
-  "edit": "Edit",
   "fetchError": {
     "desc": "Try refreshing the page",
     "title": "Error"
   },
-  "cancel": "cancel",
-  "save": "save"
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "form": {
+    "username": {
+      "placeholder": "Your login",
+      "label": "Login"
+    },
+    "firstname": {
+      "placeholder": "Your firstname",
+      "label": "Firstname"
+    },
+    "lastname": {
+      "placeholder": "Your lastname",
+      "label": "Lastname"
+    },
+    "city": {
+      "placeholder": "Your city",
+      "label": "City"
+    },
+    "age": {
+      "label": "Your age",
+      "placeholder": "Age"
+    },
+    "avatar": {
+      "placeholder": "Link to avatar",
+      "label": "Avatar"
+    },
+    "currency": {
+      "placeholder": "Select currency",
+      "label": "Currency"
+    },
+    "country": {
+      "placeholder": "Select country",
+      "label": "Country"
+    },
+    "validateErrors": {
+      "serverError": "Server error",
+      "noData": "Not data",
+      "incorrectAge": "Incorrect age",
+      "incorrectCity": "Incorrect city",
+      "incorrectUserData": "Fields Firstname, Lastname, Login must not be empty"
+    }
+  }
 }

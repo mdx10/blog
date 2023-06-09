@@ -1,6 +1,7 @@
-.root {
+.label {
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .select {
@@ -21,7 +22,7 @@
     }
 }
 
-.primary > .select {
+.primary {
     background: var(--bg-input-color);
     box-shadow:
         rgb(255 255 255) 0 0 0 0,
@@ -31,7 +32,7 @@
     color: var(--primary-color);
 }
 
-.invert > .select {
+.invert {
     background: var(--bg-input-color-invert);
     box-shadow:
         rgb(255 255 255) 0 0 0 0,
