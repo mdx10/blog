@@ -10,6 +10,9 @@ export default function ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
+                plugins: [
+                    isDev && require.resolve('react-refresh/babel'),
+                ].filter(Boolean),
             },
         },
     };
