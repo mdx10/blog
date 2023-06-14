@@ -23,4 +23,15 @@ body {
     padding: 30px 15px;
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
+    width: 100%;
+}
+
+h1 {
+    font: var(--font-xl);
+    font-weight: 500;
+}
+
+h2 {
+    font: var(--font-l);
+    font-weight: 500;
 }

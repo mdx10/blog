@@ -1,3 +1,10 @@
 .root {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+    p {
+        font: var(--font-s);
+    }
 }

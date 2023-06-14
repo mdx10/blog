@@ -1,0 +1,21 @@
+.root {
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--bg-color-invert);
+    color: var(--primary-color-invert);
+    width: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+}
