@@ -1,5 +1,7 @@
 {
   "lang": "РУ",
   "notFoundPage": "Page not found",
-  "collapseButton": "Collapse"
+  "collapseButton": "Collapse",
+  "commentsTitle": "Comments",
+  "noComments": "No comments yet"
 }

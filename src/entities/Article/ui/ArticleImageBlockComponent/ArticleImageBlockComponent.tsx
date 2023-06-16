@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleImageBlock } from 'entities/Article/model/types/Article';
+import { ArticleImageBlock } from '../../model/types/Article';
 import styles from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {

@@ -1,4 +1,5 @@
 {
   "title": "Статья",
-  "error": "error"
+  "error": "error",
+  "noArticle": "Статья не найдена"
 }

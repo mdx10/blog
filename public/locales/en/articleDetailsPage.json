@@ -1,4 +1,5 @@
 {
   "title": "Article details",
-  "error": "error"
+  "error": "error",
+  "noArticle": "Articles not found"
 }

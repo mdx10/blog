@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { CommentList } from 'entities/Comment';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -16,7 +17,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if (!id) {
         return (
             <div className={classNames(styles.root, {}, [className])}>
-                Страница не найдена
+                {t('noArticle')}
             </div>
         );
     }
@@ -24,6 +25,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <div className={classNames(styles.root, {}, [className])}>
             <ArticleDetails id={id} />
+            <CommentList
+                className={styles.comments}
+                comments={[
+                    { id: '1', text: 'comment 1', user: { id: '1', username: 'user1', avatar: 'https://i.pravatar.cc/300?img=1' } },
+                    { id: '2', text: 'comment 2', user: { id: '2', username: 'user2', avatar: 'https://i.pravatar.cc/300?img=2' } },
+                ]}
+            />
         </div>
     );
 };

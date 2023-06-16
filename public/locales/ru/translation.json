@@ -1,5 +1,7 @@
 {
   "lang": "EN",
   "notFoundPage": "Страница не найдена",
-  "collapseButton": "Свернуть"
+  "collapseButton": "Свернуть",
+  "commentsTitle": "Комментарии",
+  "noComments": "Комментарии отсутствуют"
 }
