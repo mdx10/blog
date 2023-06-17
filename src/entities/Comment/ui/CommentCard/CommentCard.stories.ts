@@ -12,5 +12,11 @@ export default meta;
 type Story = StoryObj<typeof CommentCard>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        comment: {
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, quas.',
+            id: '1',
+            user: { id: '1', username: 'Username' },
+        },
+    },
 };
