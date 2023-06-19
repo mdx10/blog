@@ -1,0 +1,19 @@
+.root {
+    border: 1px solid var(--bg-color-invert);
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input {
+    flex-grow: 1;
+}

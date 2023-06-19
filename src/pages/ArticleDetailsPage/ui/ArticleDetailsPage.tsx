@@ -5,8 +5,10 @@ import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import styles from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/ArticleDetailsCommentsSlice';
@@ -29,6 +31,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
+
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     }, [id, dispatch]);
@@ -45,8 +51,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(styles.root, {}, [className])}>
                 <ArticleDetails id={id} />
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                    isLoading={commentsIsLoading}
+                />
                 <CommentList
-                    className={styles.comments}
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />

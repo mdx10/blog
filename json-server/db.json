@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,48 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "kQ1ehiY"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "3333",
+      "id": "4rHjkog"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdf",
+      "id": "2hPbvhX"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfgsdf",
+      "id": "EPYh5s1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fgsdfg",
+      "id": "F_pUfx1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfgsdsdfg",
+      "id": "-D59NRd"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "dfafdsdfasd",
+      "id": "0qaekKc"
     }
   ],
   "users": [
@@ -118,14 +162,28 @@
       "avatar": "https://i.pravatar.cc/300?img=2"
     }
   ],
-  "profile": {
-    "firstname": "Александр",
-    "lastname": "Смирнов",
-    "age": 27,
-    "username": "smirnov",
-    "city": "Новосибирск",
-    "country": "Russia",
-    "currency": "USD",
-    "avatar": "https://i.pravatar.cc/300"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Александр",
+      "lastname": "Смирнов",
+      "age": 28,
+      "username": "admin",
+      "city": "Новосибирск",
+      "country": "Russia",
+      "currency": "USD",
+      "avatar": "https://i.pravatar.cc/300?img=1"
+    },
+    {
+      "id": "2",
+      "firstname": "Александр",
+      "lastname": "Петров",
+      "age": 26,
+      "username": "user",
+      "city": "Москва",
+      "country": "Russia",
+      "currency": "USD",
+      "avatar": "https://i.pravatar.cc/300?img=2"
+    }
+  ]
 }

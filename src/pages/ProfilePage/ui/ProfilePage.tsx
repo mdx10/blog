@@ -11,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -19,10 +20,11 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (id) dispatch(fetchProfileData(id));
+    }, [dispatch, id]);
 
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
