@@ -1,0 +1,59 @@
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+}
+
+.LIST {
+    
+}
+
+.GRID {
+    width: 230px;
+    padding: 15px;
+    background: var(--skeleton-shadow);
+    border-radius: 8px;
+
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .infoWrapper {
+        font: var(--font-s);
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .types {
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .views {
+        margin-right: 6px;
+    }
+
+    .title {
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
