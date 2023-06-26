@@ -9,6 +9,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import styles from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/ArticleDetailsCommentsSlice';
@@ -50,6 +52,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(styles.root, {}, [className])}>
+                <AppLink theme={AppLinkTheme.ACCENT} to={RoutePath.articles}>Назад к списку</AppLink>
                 <ArticleDetails id={id} />
                 <AddCommentForm
                     onSendComment={onSendComment}

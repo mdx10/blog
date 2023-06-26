@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Article, ArticleList } from 'entities/Article';
+import { Article, ArticleList, ArticleView } from 'entities/Article';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -23,6 +23,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             'SCIENCE',
             'ECONOMICS',
         ],
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: 'https://i.pravatar.cc/300?img=1',
+        },
         blocks: [
             {
                 id: '1',
@@ -87,8 +92,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <div className={classNames(styles.root, {}, [className])}>
-            <h1>{t('title')}</h1>
-            <ArticleList articles={[article]} />
+            <h1 className={styles.title}>{t('title')}</h1>
+            <ArticleList view={ArticleView.LIST} articles={new Array(16).fill(0).map((item, index) => ({ ...article, id: String(index) }))} />
         </div>
     );
 };
