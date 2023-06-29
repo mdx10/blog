@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -66,7 +67,7 @@ const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div>
+            <Page>
                 <ProfilePageHeader />
                 <ProfileCard
                     data={formData}
@@ -83,7 +84,7 @@ const ProfilePage = () => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -11,6 +11,11 @@ interface ArticleListProps {
     view?: ArticleView;
 }
 
+const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
+    .fill(0)
+    // eslint-disable-next-line react/no-array-index-key
+    .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
+
 export const ArticleList = (props: ArticleListProps) => {
     const {
         className,
@@ -21,22 +26,10 @@ export const ArticleList = (props: ArticleListProps) => {
 
     const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
 
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.root, {}, [className])}>
-                {
-                    new Array(view === ArticleView.GRID ? 9 : 3)
-                        .fill(0)
-                        // eslint-disable-next-line react/no-array-index-key
-                        .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />)
-                }
-            </div>
-        );
-    }
-
     return (
         <div className={classNames(styles.root, {}, [className])}>
             {articles?.length > 0 && articles?.map(renderArticle)}
+            {isLoading && getSkeleton(view)}
         </div>
     );
 };
