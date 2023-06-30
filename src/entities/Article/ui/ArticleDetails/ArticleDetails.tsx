@@ -46,11 +46,11 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent block={block} />;
+            return <ArticleCodeBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent block={block} />;
+            return <ArticleImageBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent block={block} />;
+            return <ArticleTextBlockComponent key={block.id} block={block} />;
         default:
             return null;
         }

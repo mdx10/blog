@@ -29,7 +29,13 @@ export const CommentList = (props: CommentListProps) => {
             <h2 className={styles.title}>{t('commentsTitle')}</h2>
             {
                 comments?.length
-                    ? comments.map((comment) => <CommentCard comment={comment} isLoading={isLoading} />)
+                    ? comments.map((comment) => (
+                        <CommentCard
+                            comment={comment}
+                            isLoading={isLoading}
+                            key={comment.id}
+                        />
+                    ))
                     : <p>{t('noComments')}</p>
             }
         </div>

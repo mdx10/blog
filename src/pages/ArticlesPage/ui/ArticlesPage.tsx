@@ -9,7 +9,11 @@ import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
-import { getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageIsLoading,
+    getArticlesPageMounted,
+    getArticlesPageView,
+} from '../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -28,6 +32,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
+    const mounted = useSelector(getArticlesPageMounted);
 
     const onLoadNextPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -38,14 +43,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
-    }, [dispatch]);
+        if (!mounted) {
+            dispatch(articlesPageActions.initState());
+            dispatch(fetchArticlesList({
+                page: 1,
+            }));
+        }
+    }, [dispatch, mounted]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} notRemove>
             <Page onScrollEnd={onLoadNextPage} className={classNames(styles.root, {}, [className])}>
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <h1 className={styles.title}>{t('title')}</h1>

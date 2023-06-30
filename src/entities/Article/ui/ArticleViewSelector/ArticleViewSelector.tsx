@@ -28,7 +28,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             {viewTypes.map((viewType) => (
-                <Button theme={ThemeButton.CLEAR} onClick={onClick(viewType.view)}>
+                <Button theme={ThemeButton.CLEAR} onClick={onClick(viewType.view)} key={viewType.view}>
                     <viewType.Icon
                         className={classNames(styles.icon, { [styles.selected]: viewType.view === view })}
                     />
