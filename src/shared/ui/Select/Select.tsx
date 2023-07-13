@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    ChangeEvent, memo, useMemo,
+    ChangeEvent, useMemo,
 } from 'react';
 import styles from './Select.module.scss';
 
@@ -9,22 +9,22 @@ export enum ThemeSelect {
     PRIMARY = 'primary',
 }
 
-interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string;
-    value?: string;
+    value?: T;
     label?: string;
-    options?: SelectOption[];
-    onChange?: (value: string) => void;
+    options?: SelectOption<T>[];
+    onChange?: (value: T) => void;
     theme?: ThemeSelect;
     readonly?: boolean;
     placeholder?: string;
 }
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         className,
         value,
@@ -37,7 +37,7 @@ export const Select = memo((props: SelectProps) => {
     } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
     const optionsList = useMemo(() => options?.map((opt) => (
         <option
@@ -78,4 +78,4 @@ export const Select = memo((props: SelectProps) => {
             {optionsList}
         </select>
     );
-});
+};

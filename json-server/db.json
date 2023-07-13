@@ -87,10 +87,10 @@
     {
       "id": "2",
       "title": "Java news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2019 год?",
       "img": "https://bestprogrammer.ru/wp-content/uploads/2020/08/Java.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10221,
+      "createdAt": "26.02.2019",
       "userId": "1",
       "type": [
         "IT"
@@ -159,10 +159,10 @@
     {
       "id": "3",
       "title": "Swift news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2023 год?",
       "img": "https://uploads-ssl.webflow.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 101122,
+      "createdAt": "26.02.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -231,10 +231,10 @@
     {
       "id": "4",
       "title": "Java news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2018 год?",
       "img": "https://bestprogrammer.ru/wp-content/uploads/2020/08/Java.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 106456422,
+      "createdAt": "26.02.2018",
       "userId": "1",
       "type": [
         "IT"
@@ -401,7 +401,7 @@
       "title": "Swift news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://uploads-ssl.webflow.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
-      "views": 1022,
+      "views": 102,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -473,7 +473,7 @@
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://bestprogrammer.ru/wp-content/uploads/2020/08/Java.jpg",
-      "views": 1022,
+      "views": 1022777,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -543,10 +543,10 @@
     {
       "id": "17",
       "title": "Swift news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2020 год?",
       "img": "https://uploads-ssl.webflow.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 22,
+      "createdAt": "26.02.2020",
       "userId": "1",
       "type": [
         "IT"
@@ -641,7 +641,7 @@
       "title": "Swift news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://uploads-ssl.webflow.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
-      "views": 1022,
+      "views": 34563,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -713,8 +713,8 @@
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://bestprogrammer.ru/wp-content/uploads/2020/08/Java.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 108822,
+      "createdAt": "26.11.2022",
       "userId": "1",
       "type": [
         "IT"

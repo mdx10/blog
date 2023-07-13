@@ -35,6 +35,12 @@ export enum ArticleType {
     ECONOMICS = 'ECONOMICS',
 }
 
+export enum ArticleSortField {
+    VIEW = 'view',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
 export enum ArticleView {
     LIST = 'LIST',
     GRID = 'GRID',

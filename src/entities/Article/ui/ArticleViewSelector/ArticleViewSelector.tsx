@@ -26,7 +26,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     const onClick = (newView: ArticleView) => () => onViewClick?.(newView);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div className={classNames(styles.root, {}, [className])}>
             {viewTypes.map((viewType) => (
                 <Button theme={ThemeButton.CLEAR} onClick={onClick(viewType.view)} key={viewType.view}>
                     <viewType.Icon
