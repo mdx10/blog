@@ -36,7 +36,7 @@ export enum ArticleType {
 }
 
 export enum ArticleSortField {
-    VIEW = 'view',
+    VIEW = 'views',
     TITLE = 'title',
     CREATED = 'createdAt',
 }

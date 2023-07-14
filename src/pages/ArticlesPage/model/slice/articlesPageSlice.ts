@@ -47,23 +47,38 @@ const articlesPageSlice = createSlice({
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
-        initState: (state) => {
+        initState: (state, action: PayloadAction<URLSearchParams>) => {
             const view = localStorage.getItem(ARTICLES_VIEW_KEY) as ArticleView;
+            const sortFromUrl = action.payload.get('sort') as ArticleSortField;
+            const orderFromUrl = action.payload.get('order') as SortOrder;
+            const searchFromUrl = action.payload.get('search');
             state.view = view;
             state.limit = view === ArticleView.GRID ? 9 : 4;
             state._mounted = true;
+            if (sortFromUrl) state.sort = sortFromUrl;
+            if (orderFromUrl) state.order = orderFromUrl;
+            if (searchFromUrl) state.search = searchFromUrl;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.isLoading = true;
                 state.error = undefined;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
-            .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
-                articlesAdapter.addMany(state, action.payload);
-                state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

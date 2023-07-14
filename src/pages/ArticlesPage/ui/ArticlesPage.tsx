@@ -6,6 +6,7 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/ui/Page';
+import { useSearchParams } from 'react-router-dom';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
@@ -35,18 +36,18 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useSelector(getArticlesPageView);
     const mounted = useSelector(getArticlesPageMounted);
 
+    const [searchParams] = useSearchParams();
+
     const onLoadNextPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useEffect(() => {
         if (!mounted) {
-            dispatch(articlesPageActions.initState());
-            dispatch(fetchArticlesList({
-                page: 1,
-            }));
+            dispatch(articlesPageActions.initState(searchParams));
+            dispatch(fetchArticlesList({}));
         }
-    }, [dispatch, mounted]);
+    }, [dispatch, mounted, searchParams]);
 
     return (
         <DynamicModuleLoader reducers={reducers} notRemove>
