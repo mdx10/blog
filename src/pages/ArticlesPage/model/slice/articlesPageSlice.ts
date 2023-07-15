@@ -1,6 +1,8 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleSortField, ArticleView } from 'entities/Article';
+import {
+    Article, ArticleSortField, ArticleType, ArticleView,
+} from 'entities/Article';
 import { ARTICLES_VIEW_KEY } from 'shared/constants/localstorage';
 import { SortOrder } from 'shared/types';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
@@ -29,6 +31,7 @@ const articlesPageSlice = createSlice({
         sort: ArticleSortField.CREATED,
         order: 'asc',
         limit: 9,
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -47,17 +50,22 @@ const articlesPageSlice = createSlice({
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
+        },
         initState: (state, action: PayloadAction<URLSearchParams>) => {
             const view = localStorage.getItem(ARTICLES_VIEW_KEY) as ArticleView;
             const sortFromUrl = action.payload.get('sort') as ArticleSortField;
             const orderFromUrl = action.payload.get('order') as SortOrder;
             const searchFromUrl = action.payload.get('search');
+            const typeFromUrl = action.payload.get('type') as ArticleType;
             state.view = view;
             state.limit = view === ArticleView.GRID ? 9 : 4;
             state._mounted = true;
             if (sortFromUrl) state.sort = sortFromUrl;
             if (orderFromUrl) state.order = orderFromUrl;
             if (searchFromUrl) state.search = searchFromUrl;
+            if (typeFromUrl) state.type = typeFromUrl;
         },
     },
     extraReducers: (builder) => {

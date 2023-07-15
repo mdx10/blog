@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { ArticleView } from 'entities/Article';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 const meta: Meta<typeof ArticleViewSelector> = {
-    title: 'shared/ArticleViewSelector',
+    title: 'entities/Article/ArticleViewSelector',
     component: ArticleViewSelector,
     tags: ['autodocs'],
 };
@@ -12,5 +13,7 @@ export default meta;
 type Story = StoryObj<typeof ArticleViewSelector>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        view: ArticleView.GRID,
+    },
 };

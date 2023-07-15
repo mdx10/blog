@@ -1,17 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleSortField, ArticleView, ArticleViewSelector } from 'entities/Article';
+import {
+    ArticleSortField, ArticleView, ArticleViewSelector, ArticleType,
+    ArticleSortSelector, ArticleTypeTabs,
+} from 'entities/Article';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
-    getArticlesPageSort,
+    getArticlesPageSort, getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPageFilters.module.scss';
@@ -30,6 +32,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const sort = useSelector(getArticlesPageSort);
     const search = useSelector(getArticlesPageSearch);
     const order = useSelector(getArticlesPageOrder);
+    const type = useSelector(getArticlesPageType);
 
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList({ replace: true }));
@@ -59,11 +62,20 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
 
+    const onChangeType = useCallback((value: ArticleType) => {
+        dispatch(articlesPageActions.setType(value));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
+
     return (
         <div className={classNames(styles.root, {}, [className])}>
-            <ArticleSortSelector sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
+            <div className={styles.row}>
+                <ArticleSortSelector sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+            </div>
             <Input className={styles.search} placeholder="Поиск" value={search} onChange={onChangeSearch} />
-            <ArticleViewSelector view={view} onViewClick={onChangeView} />
+            <ArticleTypeTabs value={type} onChangeType={onChangeType} />
         </div>
     );
 };

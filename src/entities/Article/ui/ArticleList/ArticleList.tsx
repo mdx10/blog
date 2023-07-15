@@ -26,6 +26,14 @@ export const ArticleList = (props: ArticleListProps) => {
 
     const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(styles.root, {}, [className])}>
+                <h2>Статьи не найдены</h2>
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(styles.root, {}, [className])}>
             {articles?.length > 0 && articles?.map(renderArticle)}
