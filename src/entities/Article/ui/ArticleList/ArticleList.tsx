@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import styles from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/Article';
@@ -9,6 +10,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
@@ -22,9 +24,10 @@ export const ArticleList = (props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.GRID,
+        target,
     } = props;
 
-    const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} />;
+    const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} target={target} />;
 
     if (!isLoading && !articles.length) {
         return (

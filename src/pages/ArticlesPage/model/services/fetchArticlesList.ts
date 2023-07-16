@@ -38,7 +38,7 @@ export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListAr
                     _sort: sort,
                     _order: order,
                     q: search,
-                    type: type === ArticleType.ALL ? undefined : type,
+                    type_like: type === ArticleType.ALL ? undefined : type,
                 },
             });
             if (!response.data) throw new Error();

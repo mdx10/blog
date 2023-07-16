@@ -27,3 +27,18 @@ h2 {
     font: var(--font-l);
     font-weight: 500;
 }
+
+*::-webkit-scrollbar {
+    width: 10px;               /* ширина всей полосы прокрутки */
+    height: 8px;               /* ширина всей полосы прокрутки */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--bg-color);        /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color-invert);    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+    border: 1px solid var(--accent-color);  /* отступ вокруг бегунка */
+}

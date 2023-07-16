@@ -3,6 +3,7 @@ import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -13,11 +14,13 @@ interface ArticleListItemProps {
     className?: string;
     article?: Article;
     view: ArticleView;
-
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
-    const { className, view, article } = props;
+    const {
+        className, view, article, target,
+    } = props;
 
     if (view === ArticleView.LIST) {
         const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
@@ -36,8 +39,14 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 <img className={styles.image} src={article?.img} alt={article?.title} />
                 {textBlock && <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />}
                 <div className={styles.footer}>
-                    {/* eslint-disable-next-line no-unsafe-optional-chaining */}
-                    <AppLink to={RoutePath.articles_details + article?.id} theme={AppLinkTheme.ACCENT}>Читить статью...</AppLink>
+                    <AppLink
+                        // eslint-disable-next-line no-unsafe-optional-chaining
+                        to={RoutePath.articles_details + article?.id}
+                        theme={AppLinkTheme.ACCENT}
+                        target={target}
+                    >
+                        Читить статью...
+                    </AppLink>
                     <div className={styles.viewsWrap}>
                         <span>{article?.views}</span>
                         <EyeIcon className={styles.icon} />
@@ -48,8 +57,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     }
 
     return (
-        // eslint-disable-next-line no-unsafe-optional-chaining
-        <AppLink to={RoutePath.articles_details + article?.id} className={classNames(styles[view], {}, [className])}>
+        <AppLink
+            // eslint-disable-next-line no-unsafe-optional-chaining
+            to={RoutePath.articles_details + article?.id}
+            className={classNames(styles[view], {}, [className])}
+            target={target}
+        >
             <div className={styles.imageWrapper}>
                 <span className={styles.date}>{article?.createdAt}</span>
                 <img className={styles.image} src={article?.img} alt={article?.title} />
