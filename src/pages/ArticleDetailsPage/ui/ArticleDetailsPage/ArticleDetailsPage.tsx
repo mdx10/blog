@@ -8,18 +8,17 @@ import { useSelector } from 'react-redux';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
 import { fetchArticlesRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticlesRecommendations';
-import { addCommentForArticle } from '../model/services/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import styles from './ArticleDetailsPage.module.scss';
-import { getArticleComments } from '../model/slice/ArticleDetailsCommentsSlice';
-import { getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { articleDetailsPageReducer } from '../model/slice';
-import { getArticleRecommendations } from '../model/slice/ArticleDetailsRecommendationsSlice';
-import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
+import { getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { articleDetailsPageReducer } from '../../model/slice';
+import { getArticleRecommendations } from '../../model/slice/ArticleDetailsRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -61,7 +60,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(styles.root, {}, [className])}>
-                <AppLink theme={AppLinkTheme.ACCENT} to={RoutePath.articles}>Назад к списку</AppLink>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <ArticleList
                     articles={recommendations}

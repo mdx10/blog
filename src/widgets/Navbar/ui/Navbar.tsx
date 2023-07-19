@@ -6,6 +6,8 @@ import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entities/User';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -23,6 +25,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <header className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.container}>
+                {authData && (
+                    <AppLink to={RoutePath.articles_create}>Создать статью</AppLink>
+                )}
                 <div className={styles.switchers}>
                     <ThemeSwitcher />
                     <LangSwitcher />
