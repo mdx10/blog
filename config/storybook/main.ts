@@ -8,6 +8,8 @@ const paths: BuildPaths = {
     entry: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: '',
 };
 
 const cssLoader = {
