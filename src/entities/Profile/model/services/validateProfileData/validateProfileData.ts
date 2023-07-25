@@ -1,5 +1,4 @@
-import { Profile } from 'entities/Profile';
-import { ValidateProfileError } from '../../types/Profile';
+import { Profile, ValidateProfileError } from '../../types/Profile';
 
 export function validateProfileData(profile?: Profile) {
     if (!profile) return [ValidateProfileError.NO_DATA];

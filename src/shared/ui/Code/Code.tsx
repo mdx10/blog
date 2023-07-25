@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
 import CopyIcon from 'shared/assets/icons/copy-icon.svg';
+import { Button } from '../Button/Button';
 import styles from './Code.module.scss';
 
 interface CodeProps {

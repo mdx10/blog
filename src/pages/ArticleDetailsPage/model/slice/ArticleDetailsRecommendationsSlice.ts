@@ -4,7 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { fetchArticlesRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticlesRecommendations';
+import { fetchArticlesRecommendations } from '../services/fetchArticlesRecommendations';
 import {
     ArticleDetailsRecommendationsSchema,
 } from '../types/ArticleDetailsRecommendationsSchema';

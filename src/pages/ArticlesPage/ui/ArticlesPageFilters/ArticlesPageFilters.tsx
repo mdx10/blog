@@ -71,7 +71,12 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     return (
         <div className={classNames(styles.root, {}, [className])}>
             <div className={styles.row}>
-                <ArticleSortSelector sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
+                <ArticleSortSelector
+                    sort={sort}
+                    order={order}
+                    onChangeSort={onChangeSort}
+                    onChangeOrder={onChangeOrder}
+                />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Input className={styles.search} placeholder="Поиск" value={search} onChange={onChangeSearch} />

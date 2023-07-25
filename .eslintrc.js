@@ -21,6 +21,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'react-hooks',
+        'ulbi-tv-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -35,7 +36,7 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['error'],
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
@@ -51,6 +52,8 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-undef': 'off',
+        'ulbi-tv-plugin/path-checker': 'error',
+        'func-names': 'off',
     },
     globals: {
         __IS_DEV__: true,

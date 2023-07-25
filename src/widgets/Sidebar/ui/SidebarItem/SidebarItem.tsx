@@ -3,7 +3,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/User';
-import { SidebarItemType } from 'widgets/Sidebar/model/types/Sidebar';
+import { SidebarItemType } from '../../model/types/Sidebar';
 import styles from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

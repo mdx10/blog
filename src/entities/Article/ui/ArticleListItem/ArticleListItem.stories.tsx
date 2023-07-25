@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleView } from 'entities/Article';
+import { ArticleView } from '../../model/types/Article';
 import { ArticleListItem } from './ArticleListItem';
 
 const meta: Meta<typeof ArticleListItem> = {
@@ -12,6 +12,7 @@ const meta: Meta<typeof ArticleListItem> = {
 export default meta;
 type Story = StoryObj<typeof ArticleListItem>;
 
+/* eslint-disable max-len */
 const article = {
     id: '1',
     title: 'Javascript news',

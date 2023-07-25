@@ -17,7 +17,6 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
             dispatch(userActions.setAuthData(response.data));
             return response.data;
         } catch (e) {
-            console.log(e);
             return rejectWithValue('error');
         }
     },

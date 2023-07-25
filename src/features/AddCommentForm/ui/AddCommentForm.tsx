@@ -5,7 +5,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slice/addCommentFormSlice';
 import styles from './AddCommentForm.module.scss';
 

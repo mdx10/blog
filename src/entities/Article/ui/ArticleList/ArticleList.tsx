@@ -27,7 +27,9 @@ export const ArticleList = (props: ArticleListProps) => {
         target,
     } = props;
 
-    const renderArticle = (article: Article) => <ArticleListItem key={article.id} article={article} view={view} target={target} />;
+    const renderArticle = (article: Article) => (
+        <ArticleListItem key={article.id} article={article} view={view} target={target} />
+    );
 
     if (!isLoading && !articles.length) {
         return (

@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Modal>;
 
 export const Primary: Story = {
     args: {
+        // eslint-disable-next-line max-len
         children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolore doloremque explicabo iure nonomnis, quos ratione sequi ullam vel!',
         isOpen: true,
     },
