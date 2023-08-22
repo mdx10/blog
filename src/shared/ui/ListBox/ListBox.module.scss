@@ -1,0 +1,80 @@
+.root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.options {
+    position: absolute;
+    z-index: 999;
+    background: var(--bg-color-invert);
+    color: var(--primary-color-invert);
+    border-radius: 4px;
+    padding: 2px 0;
+    width: 100%;
+}
+
+.bottom {
+    top: calc(100% + 6px);
+}
+
+.top {
+    bottom: calc(100% - 24px);
+}
+
+.option {
+    padding: 2px 8px;
+}
+
+.active {
+    background: var(--secondary-color);
+}
+
+.selected {
+    background: var(--accent-color);
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.trigger {
+    padding: 8px 12px;
+    height: 38px;
+    border-radius: 6px;
+    width: 100%;
+    display: flex;
+
+    &::placeholder {
+        color: var(--input-placeholder-color);
+    }
+
+    &:focus {
+        box-shadow:
+            rgb(255 255 255) 0 0 0 0,
+            var(--input-shadow-focus),
+            rgb(0 0 0 / 10%) 0 1px 3px 0,
+            rgb(0 0 0 / 10%) 0 1px 2px -1px;
+    }
+}
+
+.primary {
+    background: var(--bg-input-color);
+    box-shadow:
+        rgb(255 255 255) 0 0 0 0,
+        var(--input-shadow),
+        rgb(0 0 0 / 10%) 0 1px 3px 0,
+        rgb(0 0 0 / 10%) 0 1px 2px -1px;
+    color: var(--primary-color);
+}
+
+.invert {
+    background: var(--bg-input-color-invert);
+    box-shadow:
+        rgb(255 255 255) 0 0 0 0,
+        var(--input-shadow-invert),
+        rgb(0 0 0 / 10%) 0 1px 3px 0,
+        rgb(0 0 0 / 10%) 0 1px 2px -1px;
+    color: var(--primary-color-invert);
+}
