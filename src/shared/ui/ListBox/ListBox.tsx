@@ -14,6 +14,8 @@ export interface ListBoxOption<T extends string> {
     disabled?: boolean;
 }
 
+type DropdownDirection = 'top' | 'bottom';
+
 interface ListBoxProps<T extends string> {
     className?: string;
     theme?: ThemeListBox;
@@ -23,7 +25,7 @@ interface ListBoxProps<T extends string> {
     onChange: (value: T) => void;
     label?: string;
     readonly?: boolean;
-    direction?: string
+    direction?: DropdownDirection;
 }
 
 export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {

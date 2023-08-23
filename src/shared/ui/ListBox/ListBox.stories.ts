@@ -12,5 +12,23 @@ export default meta;
 type Story = StoryObj<typeof ListBox>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        options: [
+            {
+                value: 'first',
+                content: 'first',
+            },
+            {
+                value: 'second',
+                content: 'second',
+                disabled: true,
+            },
+            {
+                value: 'third',
+                content: 'third',
+            },
+        ],
+        value: 'third',
+        label: 'Label',
+    },
 };
