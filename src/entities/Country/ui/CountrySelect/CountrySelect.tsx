@@ -36,7 +36,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             placeholder={placeholder}
             readonly={readonly}
             label={label}
-            direction="top"
+            direction="topLeft"
         />
     );
 });

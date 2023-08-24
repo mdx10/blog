@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, memo } from 'react';
 import { Listbox } from '@headlessui/react';
+import { DropdownDirection } from 'shared/types/ui';
 import styles from './ListBox.module.scss';
 
 export enum ThemeListBox {
@@ -13,8 +14,6 @@ export interface ListBoxOption<T extends string> {
     content: string;
     disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps<T extends string> {
     className?: string;
@@ -37,7 +36,7 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
         placeholder,
         label,
         readonly,
-        direction = 'bottom',
+        direction = 'bottomLeft',
         onChange,
     } = props;
 
