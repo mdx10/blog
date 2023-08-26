@@ -14,7 +14,8 @@
     "stylelint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "build-storybook": "storybook build -c ./config/storybook",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",
