@@ -48,5 +48,6 @@
       "incorrectCity": "Incorrect city",
       "incorrectUserData": "Fields Firstname, Lastname, Login must not be empty"
     }
-  }
+  },
+  "Профиль не найден": "Профиль не найден"
 }

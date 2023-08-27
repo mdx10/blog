@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleList } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -10,13 +9,12 @@ import { useSearchParams } from 'react-router-dom';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { articlesPageActions, articlesPageReducer } from '../model/slice/articlesPageSlice';
 import {
-    getArticlesPageIsLoading,
     getArticlesPageMounted,
-    getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPage.module.scss';
+import { ArticlesInfiniteList } from './ArticlesInfiniteList/ArticlesInfiniteList';
 
 interface ArticlesPageProps {
     className?: string;
@@ -30,17 +28,13 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const { t } = useTranslation('articlesPage');
     const dispatch = useAppDispatch();
-
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
     const mounted = useSelector(getArticlesPageMounted);
-
-    const [searchParams] = useSearchParams();
 
     const onLoadNextPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
+
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
         if (!mounted) {
@@ -54,7 +48,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             <Page onScrollEnd={onLoadNextPage} className={classNames(styles.root, {}, [className])}>
                 <ArticlesPageFilters className={styles.filters} />
                 <h1 className={styles.title}>{t('title')}</h1>
-                <ArticleList view={view} articles={articles} isLoading={isLoading} />
+                <ArticlesInfiniteList />
             </Page>
         </DynamicModuleLoader>
     );

@@ -5,7 +5,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { Profile, ValidateProfileError } from '../../model/types/Profile';
+import { ValidateProfileError } from 'features/EditableProfileCard';
+import { Profile } from '../../model/types/Profile';
 import styles from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
