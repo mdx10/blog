@@ -5,6 +5,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useTranslation } from 'react-i18next';
+import { ValidateProfileError } from '../../model/types/EditableProfileCardSchema';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -25,6 +27,7 @@ const reducers: ReducersList = {
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const { className, id } = props;
+    const { t } = useTranslation('profilePage');
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -36,6 +39,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslate = {
+        [ValidateProfileError.SERVER_ERROR]: t('form.validateErrors.serverError'),
+        [ValidateProfileError.NO_DATA]: t('form.validateErrors.noData'),
+        [ValidateProfileError.INCORRECT_AGE]: t('form.validateErrors.incorrectAge'),
+        [ValidateProfileError.INCORRECT_CITY]: t('form.validateErrors.incorrectCity'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('form.validateErrors.incorrectUserData'),
+    };
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstname: value || '' }));
@@ -72,10 +83,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <EditableProfileCardHeader />
+            <div>
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <p key={err} data-testid="EditableProfileCard.Error">{validateErrorsTranslate[err]}</p>
+                ))}
+            </div>
             <ProfileCard
                 data={formData}
                 error={error}
-                validateErrors={validateErrors}
                 isLoading={isLoading}
                 readonly={readonly}
                 onChangeFirstname={onChangeFirstname}

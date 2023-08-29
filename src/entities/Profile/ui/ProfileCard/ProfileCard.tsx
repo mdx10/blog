@@ -5,7 +5,6 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { ValidateProfileError } from 'features/EditableProfileCard';
 import { Profile } from '../../model/types/Profile';
 import styles from './ProfileCard.module.scss';
 
@@ -15,7 +14,6 @@ interface ProfileCardProps {
     error?: string;
     isLoading?: boolean;
     readonly?: boolean;
-    validateErrors?: ValidateProfileError[];
     onChangeFirstname?: (value: string) => void;
     onChangeLastname?: (value: string) => void;
     onChangeCity?: (value: string) => void;
@@ -34,7 +32,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         isLoading,
         data,
         readonly,
-        validateErrors,
         onChangeFirstname,
         onChangeLastname,
         onChangeCity,
@@ -62,14 +59,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    const validateErrorsTranslate = {
-        [ValidateProfileError.SERVER_ERROR]: t('form.validateErrors.serverError'),
-        [ValidateProfileError.NO_DATA]: t('form.validateErrors.noData'),
-        [ValidateProfileError.INCORRECT_AGE]: t('form.validateErrors.incorrectAge'),
-        [ValidateProfileError.INCORRECT_CITY]: t('form.validateErrors.incorrectCity'),
-        [ValidateProfileError.INCORRECT_USER_DATA]: t('form.validateErrors.incorrectUserData'),
-    };
-
     return (
         <div className={classNames(styles.root, { [styles.editing]: !readonly }, [className])}>
             <div className={styles.data}>
@@ -84,6 +73,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     label={t('form.username.label')}
                     onChange={onChangeUsername}
                     readonly={readonly}
+                    data-testid="ProfileCard.username"
                 />
                 <Input
                     value={data?.firstname}
@@ -91,6 +81,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     label={t('form.firstname.label')}
                     onChange={onChangeFirstname}
                     readonly={readonly}
+                    data-testid="ProfileCard.firstname"
                 />
                 <Input
                     value={data?.lastname}
@@ -98,6 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     label={t('form.lastname.label')}
                     onChange={onChangeLastname}
                     readonly={readonly}
+                    data-testid="ProfileCard.lastname"
                 />
                 <Input
                     value={data?.city}
@@ -135,11 +127,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
-            <div>
-                {validateErrors?.length && validateErrors.map((err) => (
-                    <p key={err}>{validateErrorsTranslate[err]}</p>
-                ))}
             </div>
         </div>
     );
