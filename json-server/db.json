@@ -896,14 +896,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://i.pravatar.cc/300?img=1"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "user",
+      "roles": ["USER"],
+      "avatar": "https://i.pravatar.cc/300?img=2"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://i.pravatar.cc/300?img=2"
     }
   ],

@@ -5,7 +5,9 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAuthData, userActions } from 'entities/User';
+import {
+    getAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
@@ -24,6 +26,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
     const authData = useSelector(getAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
+
     return (
         <header className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.container}>
@@ -38,6 +45,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     authData ? (
                         <Dropdown
                             items={[
+                                ...(isAdminPanelAvailable ? [{
+                                    content: 'Админка',
+                                    href: RoutePath.admin_panel,
+                                }] : []),
                                 {
                                     content: 'Профиль',
                                     href: RoutePath.profile + authData.id,
