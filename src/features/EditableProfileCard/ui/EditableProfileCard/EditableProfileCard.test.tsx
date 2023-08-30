@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 import { $api } from 'shared/api/api';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from '../EditableProfileCard/EditableProfileCard';
-import { ProfileScheme } from '../..';
+import { ProfileScheme } from '../../model/types/EditableProfileCardSchema';
 
 const profile: Profile = {
     id: '1',

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
 import { useMemo } from 'react';
-import { ArticleSortField } from '../../model/types/Article';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 import styles from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {

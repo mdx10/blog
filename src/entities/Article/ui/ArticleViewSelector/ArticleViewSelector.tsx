@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import GridIcon from 'shared/assets/icons/table-icon.svg';
 import ListIcon from 'shared/assets/icons/list-icon.svg';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { ArticleView } from '../../model/types/Article';
+import { ArticleView } from '../../model/consts/articleConsts';
 import styles from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
