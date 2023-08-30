@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import { BuildOptions } from './types/config';
 
 export default function ({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -29,6 +30,10 @@ export default function ({ paths, isDev, apiUrl }: BuildOptions): webpack.Webpac
     if (isDev) {
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new ReactRefreshPlugin());
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }));
     }
 
     return plugins;
