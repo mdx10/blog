@@ -21,3 +21,15 @@
     height: var(--navbar-height);
     margin-left: auto;
 }
+
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+}

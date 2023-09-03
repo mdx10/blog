@@ -1,0 +1,23 @@
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.panel {
+    position: absolute;
+    z-index: 999;
+    background: var(--bg-color-invert);
+    color: var(--primary-color-invert);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

@@ -2,8 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
-import { AppLink, AppLinkTheme } from '../AppLink/AppLink';
+import { AppLink, AppLinkTheme } from '../../../AppLink/AppLink';
 import styles from './Dropdown.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -31,14 +32,14 @@ export const Dropdown = memo((props: DropdownProps) => {
             <Menu.Button>
                 {trigger}
             </Menu.Button>
-            <Menu.Items className={classNames(styles.items, {}, [styles[direction]])}>
+            <Menu.Items className={classNames(styles.items, {}, [popupCls[direction]])}>
                 {items.map((item) => {
                     const content = ({ active }: { active: boolean}) => (
                         <button
                             type="button"
                             className={classNames(
                                 styles.item,
-                                { [styles.active]: active, [styles.disabled]: item.disabled },
+                                { [popupCls.active]: active, [popupCls.disabled]: item.disabled },
                             )}
                             onClick={item.onClick}
                         >

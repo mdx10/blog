@@ -1,0 +1,26 @@
+.disabled {
+    opacity: 0.7;
+    cursor: auto;
+}
+
+.bottomLeft {
+    top: 100%;
+}
+
+.topLeft {
+    bottom: 100%;
+}
+
+.bottomRight {
+    top: 100%;
+    right: 0;
+}
+
+.topRight {
+    bottom: 100%;
+    right: 0;
+}
+
+.active {
+    background: var(--secondary-color);
+}

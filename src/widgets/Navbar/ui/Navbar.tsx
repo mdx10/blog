@@ -10,8 +10,9 @@ import {
 } from 'entities/User';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, Popover } from 'shared/ui/Popups';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import NotificationIcon from 'shared/assets/icons/notification-icon.svg';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -43,24 +44,34 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 </div>
                 {
                     authData ? (
-                        <Dropdown
-                            items={[
-                                ...(isAdminPanelAvailable ? [{
-                                    content: 'Админка',
-                                    href: RoutePath.admin_panel,
-                                }] : []),
-                                {
-                                    content: 'Профиль',
-                                    href: RoutePath.profile + authData.id,
-                                },
-                                {
-                                    content: 'Выйти',
-                                    onClick: onLogout,
-                                },
-                            ]}
-                            trigger={<Avatar size={30} src={authData.avatar} />}
-                            direction="bottomRight"
-                        />
+                        <div className={styles.actions}>
+                            <Popover
+                                trigger={(
+                                    <NotificationIcon className={styles.icon} />
+                                )}
+                                direction="bottomRight"
+                            >
+                                qwreqwerqwer
+                            </Popover>
+                            <Dropdown
+                                items={[
+                                    ...(isAdminPanelAvailable ? [{
+                                        content: 'Админка',
+                                        href: RoutePath.admin_panel,
+                                    }] : []),
+                                    {
+                                        content: 'Профиль',
+                                        href: RoutePath.profile + authData.id,
+                                    },
+                                    {
+                                        content: 'Выйти',
+                                        onClick: onLogout,
+                                    },
+                                ]}
+                                trigger={<Avatar size={30} src={authData.avatar} />}
+                                direction="bottomRight"
+                            />
+                        </div>
                     ) : (
                         <>
                             <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>Войти</Button>
