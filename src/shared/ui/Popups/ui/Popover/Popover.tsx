@@ -27,6 +27,7 @@ export const Popover = memo((props: PopoverProps) => {
 
             <HPopover.Panel
                 className={classNames(styles.panel, {}, [popupCls[direction]])}
+                unmount={false}
             >
                 {children}
             </HPopover.Panel>
