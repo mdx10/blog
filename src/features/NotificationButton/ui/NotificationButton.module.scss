@@ -3,8 +3,17 @@
     overflow-y: scroll;
 }
 
+.notificationsMob {
+    height: 100%;
+    overflow-y: scroll;
+}
+
 .icon {
     width: 24px;
     height: 24px;
     fill: currentcolor;
+}
+
+.trigger {
+    display: flex;
 }

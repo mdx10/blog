@@ -10,18 +10,19 @@ interface PopoverProps {
     trigger: ReactNode;
     direction?: DropdownDirection;
     children?: ReactNode;
+    onClick?: () => void;
 }
 
 export const Popover = memo((props: PopoverProps) => {
     const {
-        className, trigger, direction = 'bottomLeft', children,
+        className, trigger, direction = 'bottomLeft', children, onClick,
     } = props;
 
     return (
         <HPopover
             className={classNames(styles.root, {}, [className])}
         >
-            <HPopover.Button className={styles.trigger}>
+            <HPopover.Button className={styles.trigger} onClick={onClick} as="div">
                 {trigger}
             </HPopover.Button>
 

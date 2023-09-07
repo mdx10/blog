@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { ReactNode, useCallback, useEffect } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 
@@ -40,10 +41,9 @@ export const Modal = (props: ModalProps) => {
                 className={classNames(styles.root, { [styles.opened]: isOpen }, [className, theme])}
                 data-testid="modal"
             >
-                <div className={styles.overlay} onClick={closeHandler} data-testid="modal-overlay">
-                    <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-                        {children}
-                    </div>
+                <Overlay onClick={closeHandler} />
+                <div className={styles.content}>
+                    {children}
                 </div>
             </div>
         </Portal>

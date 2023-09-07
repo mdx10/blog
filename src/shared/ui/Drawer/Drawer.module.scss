@@ -7,9 +7,6 @@
     z-index: -1;
     opacity: 0;
     pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .overlay {
@@ -26,10 +23,21 @@
     background-color: var(--bg-color-invert);
     color: var(--primary-color-invert);
     border-radius: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 60%;
+    right: 0;
+    transform: translateY(100%);
+    transition: 0.3s;
 }
 
 .opened {
     opacity: 1;
     pointer-events: auto;
     z-index: var(--modal-z-index);
+
+    .content {
+        transform: translateY(0);
+    }
 }
