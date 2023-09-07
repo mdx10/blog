@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { ReactNode, useCallback, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
@@ -18,22 +19,7 @@ export const Modal = (props: ModalProps) => {
 
     const { theme } = useTheme();
 
-    const closeHandler = useCallback(() => {
-        if (onClose) onClose();
-    }, [onClose]);
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') closeHandler();
-    }, [closeHandler]);
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown);
-        }
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, [isOpen, onKeyDown]);
+    const { close } = useModal({ isOpen, onClose });
 
     return (
         <Portal>
@@ -41,7 +27,7 @@ export const Modal = (props: ModalProps) => {
                 className={classNames(styles.root, { [styles.opened]: isOpen }, [className, theme])}
                 data-testid="modal"
             >
-                <Overlay onClick={closeHandler} />
+                <Overlay onClick={close} />
                 <div className={styles.content}>
                     {children}
                 </div>
