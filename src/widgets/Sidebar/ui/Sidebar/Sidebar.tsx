@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useState } from 'react';
-import { Button, SizeButton, ThemeButton } from 'shared/ui/Button/Button';
-import ChevronIcon from 'shared/assets/icons/right-chevron.svg';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, SizeButton, ThemeButton } from '@/shared/ui/Button/Button';
+import ChevronIcon from '@/shared/assets/icons/right-chevron.svg';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import styles from './Sidebar.module.scss';

@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleTextBlock } from '../../model/types/Article';
 import styles from './ArticleTextBlockComponent.module.scss';
 

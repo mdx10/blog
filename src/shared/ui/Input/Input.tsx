@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Input.module.scss';
 
 export enum ThemeInput {

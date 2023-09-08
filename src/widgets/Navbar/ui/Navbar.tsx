@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import { LangSwitcher } from 'features/LangSwitcher';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { memo, useState } from 'react';
-import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { NotificationButton } from 'features/NotificationButton';
-import { AvatarDropdown } from 'features/AvatarDropdown';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { LoginModal } from '@/features/AuthByUsername';
+import { getAuthData } from '@/entities/User';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { NotificationButton } from '@/features/NotificationButton';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {

@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '../Button/Button';
 
 export interface TabItem {

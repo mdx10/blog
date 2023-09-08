@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { useNotifications } from '../../api/notificationApi';
 import styles from './NotificationList.module.scss';
@@ -17,9 +17,9 @@ export const NotificationList = memo((props: NotificationListProps) => {
     if (isLoading) {
         return (
             <div className={classNames(styles.root, {}, [className])}>
-                <Skeleton width={300} height={60} border="4px" />
-                <Skeleton width={300} height={60} border="4px" />
-                <Skeleton width={300} height={60} border="4px" />
+                <Skeleton width={270} height={60} border="4px" />
+                <Skeleton width={270} height={60} border="4px" />
+                <Skeleton width={270} height={60} border="4px" />
             </div>
         );
     }
