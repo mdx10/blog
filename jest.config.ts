@@ -43,6 +43,7 @@ export default {
         '\\.(s?css)$': 'identity-obj-proxy',
         '.svg': path.resolve(__dirname, 'config/jest/jestEmptyComponent.tsx'),
         '^axios$': require.resolve('axios'),
+        '^@/(.*)$': '<rootDir>src/$1',
     },
     globals: {
         __IS_DEV__: true,
