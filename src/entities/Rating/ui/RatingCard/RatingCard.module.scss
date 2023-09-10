@@ -1,0 +1,23 @@
+.ratingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.title {
+    font: var(--font-l);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}

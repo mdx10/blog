@@ -6,6 +6,7 @@ export enum ThemeButton {
     CLEAR = 'clear',
     INVERT = 'invert',
     ACCENT = 'accent',
+    PRIMARY = 'primary',
 }
 
 export enum SizeButton {

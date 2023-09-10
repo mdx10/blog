@@ -1,0 +1,15 @@
+.root {
+    color: var(--accent-color);
+}
+
+.starIcon {
+    cursor: pointer;
+}
+
+.hovered {
+    fill: var(--accent-color);
+}
+
+.selected {
+    cursor: auto;
+}
