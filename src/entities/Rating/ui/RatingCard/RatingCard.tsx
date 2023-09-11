@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './RatingCard.module.scss';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
@@ -15,15 +16,17 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, onAccept, onCancel, title, feedbackTitle, hasFeedback,
+        className, onAccept, onCancel, title, feedbackTitle, hasFeedback, rate = 0,
     } = props;
     const [isOpenModal, setIsOpenModal] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
+    const { t } = useTranslation();
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
         setStarsCount(selectedStarsCount);
@@ -58,8 +61,8 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             <div className={styles.ratingContent}>
-                <h4 className={styles.title}>{title}</h4>
-                <StarRating size={54} onSelect={onSelectStars} />
+                <h4 className={styles.title}>{starsCount ? t('Спасибо за вашу оценку!') : title}</h4>
+                <StarRating selectedStars={starsCount} size={54} onSelect={onSelectStars} />
             </div>
             <BrowserView>
                 <Modal isOpen={isOpenModal} onClose={canselHandler}>
