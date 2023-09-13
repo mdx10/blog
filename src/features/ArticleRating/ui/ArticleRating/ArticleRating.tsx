@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RatingCard } from '@/entities/Rating/ui/RatingCard/RatingCard';
+import { RatingCard } from '@/entities/Rating';
 import { useArticleRating, useRateArticle } from '../../api/articleRatingApi';
 import { getAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
@@ -33,6 +33,7 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
                 feedback,
             });
         } catch (e) {
+            // eslint-disable-next-line no-console
             console.log(e);
         }
     }, [articleId, authData?.id, rateArticleMutation]);

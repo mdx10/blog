@@ -7,6 +7,8 @@ export type {
     Article,
 } from './model/types/Article';
 
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+
 export { getArticleDetailsData } from './model/selectors/articleDetails';
 export {
     ArticleSortField, ArticleType, ArticleView, ArticleBlockType,
