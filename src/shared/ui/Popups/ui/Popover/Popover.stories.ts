@@ -12,5 +12,9 @@ export default meta;
 type Story = StoryObj<typeof Popover>;
 
 export const Primary: Story = {
-    args: {},
+    args: {
+        trigger: 'trigger',
+        children: 'children',
+        direction: 'bottomLeft',
+    },
 };
