@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article';
 import styles from './ArticleDetailsPageHeader.module.scss';
+import { RoutePath } from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

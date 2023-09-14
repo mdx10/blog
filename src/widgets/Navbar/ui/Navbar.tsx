@@ -7,10 +7,10 @@ import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getAuthData } from '@/entities/User';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Navbar.module.scss';
+import { RoutePath } from '@/shared/constants/router';
 
 interface NavbarProps {
     className?: string;
