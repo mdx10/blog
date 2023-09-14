@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line ulbi-tv-plugin/public-api-imports
+// eslint-disable-next-line ulbi-tv-plugin/public-api-imports,ulbi-tv-plugin/layer-imports
 import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
