@@ -1,8 +1,8 @@
 import { HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
