@@ -2,8 +2,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    ArticleSortField, ArticleView, ArticleViewSelector, ArticleType,
-    ArticleSortSelector, ArticleTypeTabs,
+    ArticleSortField, ArticleView, ArticleType,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input } from '@/shared/ui/Input';
@@ -18,6 +17,9 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPageFilters.module.scss';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
     className?: string;
