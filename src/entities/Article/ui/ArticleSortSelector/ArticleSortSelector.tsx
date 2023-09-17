@@ -46,14 +46,14 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
 
     return (
         <div className={classNames(styles.root, {}, [className])}>
-            <Select<ArticleSortField>
+            <Select
                 className={styles.sort}
                 placeholder="Сортировать по"
                 options={sortOptions}
                 value={sort}
                 onChange={onChangeSort}
             />
-            <Select<SortOrder>
+            <Select
                 className={styles.sort}
                 placeholder="по"
                 options={orderOptions}
