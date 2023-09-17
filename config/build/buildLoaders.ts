@@ -11,6 +11,7 @@ export default function (options: BuildOptions): webpack.RuleSetRule[] {
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        exclude: /node_modules/,
         use: [
             {
                 loader: 'file-loader',
@@ -20,6 +21,7 @@ export default function (options: BuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = {
         test: /\.svg$/,
+        exclude: /node_modules/,
         use: ['@svgr/webpack'],
     };
 
@@ -31,6 +33,7 @@ export default function (options: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
