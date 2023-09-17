@@ -6,7 +6,7 @@ import { Dropdown } from '@/shared/ui/Popups';
 import {
     getAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -33,11 +33,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             items={[
                 ...(isAdminPanelAvailable ? [{
                     content: 'Админка',
-                    href: RoutePath.admin_panel,
+                    href: getRouteAdmin(),
                 }] : []),
                 {
                     content: 'Профиль',
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 {
                     content: 'Выйти',

@@ -9,11 +9,11 @@ import {
     Article, ArticleTextBlock,
 } from '../../model/types/Article';
 import styles from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleDetails } from '@/shared/constants/router';
 
 interface ArticleListItemProps {
     className?: string;
-    article?: Article;
+    article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
 }
@@ -42,7 +42,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 <div className={styles.footer}>
                     <AppLink
                         // eslint-disable-next-line no-unsafe-optional-chaining
-                        to={RoutePath.articles_details + article?.id}
+                        to={getRouteArticleDetails(article.id)}
                         theme={AppLinkTheme.ACCENT}
                         target={target}
                     >
@@ -60,7 +60,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     return (
         <AppLink
             // eslint-disable-next-line no-unsafe-optional-chaining
-            to={RoutePath.articles_details + article?.id}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(styles[view], {}, [className])}
             target={target}
         >

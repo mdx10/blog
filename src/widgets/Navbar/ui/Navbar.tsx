@@ -10,7 +10,7 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import styles from './Navbar.module.scss';
-import { RoutePath } from '@/shared/constants/router';
+import { getRouteArticleCreate } from '@/shared/constants/router';
 
 interface NavbarProps {
     className?: string;
@@ -25,7 +25,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.container}>
                 {authData && (
-                    <AppLink to={RoutePath.articles_create}>Создать статью</AppLink>
+                    <AppLink to={getRouteArticleCreate()}>Создать статью</AppLink>
                 )}
                 <div className={styles.switchers}>
                     <ThemeSwitcher />
