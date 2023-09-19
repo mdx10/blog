@@ -10,7 +10,7 @@ const ProfilePage = () => {
     if (!id) return <h1>{t('Профиль не найден')}</h1>;
 
     return (
-        <Page>
+        <Page data-testid="ProfilePage">
             <EditableProfileCard id={id} />
         </Page>
     );

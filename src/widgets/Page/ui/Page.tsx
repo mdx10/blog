@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import {
     MutableRefObject, ReactNode, UIEvent, useEffect, useRef,
 } from 'react';
@@ -10,8 +11,9 @@ import { getUIScrollByPath, UIActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import styles from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -48,6 +50,7 @@ export const Page = (props: PageProps) => {
             className={classNames(styles.root, {}, [className])}
             ref={wrapperRef}
             onScroll={onScroll}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}
