@@ -10,6 +10,8 @@ import {
 } from '../../model/types/Article';
 import styles from './ArticleListItem.module.scss';
 import { getRouteArticleDetails } from '@/shared/constants/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
@@ -37,7 +39,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 </div>
                 <h2 className={styles.title}>{article?.title}</h2>
                 <span className={styles.types}>{article?.type.join(', ')}</span>
-                <img className={styles.image} src={article?.img} alt={article?.title} />
+                <AppImage
+                    fallback={<Skeleton width="100%" height={230} />}
+                    className={styles.image}
+                    src={article?.img}
+                    alt={article?.title}
+                />
                 {textBlock && <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />}
                 <div className={styles.footer}>
                     <AppLink
@@ -66,7 +73,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         >
             <div className={styles.imageWrapper}>
                 <span className={styles.date}>{article?.createdAt}</span>
-                <img className={styles.image} src={article?.img} alt={article?.title} />
+                <AppImage
+                    fallback={<Skeleton width={200} height={200} />}
+                    className={styles.image}
+                    src={article?.img}
+                    alt={article?.title}
+                />
             </div>
             <div className={styles.infoWrapper}>
                 <span className={styles.types}>{article?.type.join(', ')}</span>
