@@ -945,13 +945,22 @@
       "avatar": "https://i.pravatar.cc/300?img=2"
     },
     {
-      "id": "2",
+      "id": "3",
       "username": "manager",
       "password": "123",
       "roles": [
         "MANAGER"
       ],
-      "avatar": "https://i.pravatar.cc/300?img=2"
+      "avatar": "https://i.pravatar.cc/300?img=3"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://i.pravatar.cc/300?img=4"
     }
   ],
   "profile": [

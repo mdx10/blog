@@ -16,6 +16,7 @@
     "stylelint:scss": "stylelint \"**/*.scss\"",
     "stylelint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest",
+    "test:e2e": "cypress open",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "generate:slice": "node ./scripts/createSlice/index.js"
@@ -58,6 +59,7 @@
     "concurrently": "^8.2.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "6.6.0",
+    "cypress": "^13.2.0",
     "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
