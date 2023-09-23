@@ -967,7 +967,7 @@
     {
       "id": "1",
       "firstname": "Александр",
-      "lastname": "Смирнов",
+      "lastname": "Симонов",
       "age": 28,
       "username": "admin",
       "city": "Новосибирск",
@@ -985,6 +985,17 @@
       "country": "Russia",
       "currency": "USD",
       "avatar": "https://i.pravatar.cc/300?img=2"
+    },
+    {
+      "id": "4",
+      "firstname": "test",
+      "lastname": "test",
+      "age": 26,
+      "username": "testuser",
+      "city": "Москва",
+      "country": "Russia",
+      "currency": "USD",
+      "avatar": "https://i.pravatar.cc/300?img=4"
     }
   ],
   "article-ratings": [

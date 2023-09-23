@@ -1,1 +1,1 @@
-export const selectByTestid = (testid: string) => `[data-testid=${testid}]`;
+export const selectByTestid = (testid: string) => `[data-testid="${testid}"]`;
