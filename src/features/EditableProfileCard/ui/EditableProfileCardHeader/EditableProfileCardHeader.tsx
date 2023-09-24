@@ -15,67 +15,64 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
-    const { className } = props;
-    const { t } = useTranslation('profilePage');
+export const EditableProfileCardHeader = memo(
+    (props: EditableProfileCardHeaderProps) => {
+        const { className } = props;
+        const { t } = useTranslation('profilePage');
 
-    const readonly = useSelector(getProfileReadonly);
-    const dispatch = useAppDispatch();
+        const readonly = useSelector(getProfileReadonly);
+        const dispatch = useAppDispatch();
 
-    const authData = useSelector(getAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
+        const authData = useSelector(getAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
 
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(false));
+        }, [dispatch]);
 
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
 
-    const onSaveEdit = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const onSaveEdit = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    return (
-        <div className={classNames(styles.root, {}, [className])}>
-            <h1>{t('title')}</h1>
-            {canEdit
-                && (
+        return (
+            <div className={classNames(styles.root, {}, [className])}>
+                <h1>{t('title')}</h1>
+                {canEdit && (
                     <div className={styles.buttons}>
-                        {
-                            readonly
-                                ? (
-                                    <Button
-                                        theme={ThemeButton.ACCENT}
-                                        onClick={onEdit}
-                                        data-testid="EditableProfileCardHeader.EditBtn"
-                                    >
-                                        {t('edit')}
-                                    </Button>
-                                )
-                                : (
-                                    <>
-                                        <Button
-                                            theme={ThemeButton.INVERT}
-                                            onClick={onCancelEdit}
-                                            data-testid="EditableProfileCardHeader.CancelBtn"
-                                        >
-                                            {t('cancel')}
-                                        </Button>
-                                        <Button
-                                            theme={ThemeButton.ACCENT}
-                                            onClick={onSaveEdit}
-                                            data-testid="EditableProfileCardHeader.SaveBtn"
-                                        >
-                                            {t('save')}
-                                        </Button>
-                                    </>
-                                )
-                        }
+                        {readonly ? (
+                            <Button
+                                theme={ThemeButton.ACCENT}
+                                onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditBtn"
+                            >
+                                {t('edit')}
+                            </Button>
+                        ) : (
+                            <>
+                                <Button
+                                    theme={ThemeButton.INVERT}
+                                    onClick={onCancelEdit}
+                                    data-testid="EditableProfileCardHeader.CancelBtn"
+                                >
+                                    {t('cancel')}
+                                </Button>
+                                <Button
+                                    theme={ThemeButton.ACCENT}
+                                    onClick={onSaveEdit}
+                                    data-testid="EditableProfileCardHeader.SaveBtn"
+                                >
+                                    {t('save')}
+                                </Button>
+                            </>
+                        )}
                     </div>
                 )}
-        </div>
-    );
-});
+            </div>
+        );
+    },
+);

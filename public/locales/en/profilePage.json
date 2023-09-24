@@ -1,53 +1,53 @@
 {
-  "title": "Profile",
-  "profilePage": "Profile",
-  "fetchError": {
-    "desc": "Try refreshing the page",
-    "title": "Error"
-  },
-  "edit": "Edit",
-  "cancel": "Cancel",
-  "save": "Save",
-  "form": {
-    "username": {
-      "placeholder": "Your login",
-      "label": "Login"
+    "title": "Profile",
+    "profilePage": "Profile",
+    "fetchError": {
+        "desc": "Try refreshing the page",
+        "title": "Error"
     },
-    "firstname": {
-      "placeholder": "Your firstname",
-      "label": "Firstname"
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "form": {
+        "username": {
+            "placeholder": "Your login",
+            "label": "Login"
+        },
+        "firstname": {
+            "placeholder": "Your firstname",
+            "label": "Firstname"
+        },
+        "lastname": {
+            "placeholder": "Your lastname",
+            "label": "Lastname"
+        },
+        "city": {
+            "placeholder": "Your city",
+            "label": "City"
+        },
+        "age": {
+            "label": "Your age",
+            "placeholder": "Age"
+        },
+        "avatar": {
+            "placeholder": "Link to avatar",
+            "label": "Avatar"
+        },
+        "currency": {
+            "placeholder": "Select currency",
+            "label": "Currency"
+        },
+        "country": {
+            "placeholder": "Select country",
+            "label": "Country"
+        },
+        "validateErrors": {
+            "serverError": "Server error",
+            "noData": "Not data",
+            "incorrectAge": "Incorrect age",
+            "incorrectCity": "Incorrect city",
+            "incorrectUserData": "Fields Firstname, Lastname, Login must not be empty"
+        }
     },
-    "lastname": {
-      "placeholder": "Your lastname",
-      "label": "Lastname"
-    },
-    "city": {
-      "placeholder": "Your city",
-      "label": "City"
-    },
-    "age": {
-      "label": "Your age",
-      "placeholder": "Age"
-    },
-    "avatar": {
-      "placeholder": "Link to avatar",
-      "label": "Avatar"
-    },
-    "currency": {
-      "placeholder": "Select currency",
-      "label": "Currency"
-    },
-    "country": {
-      "placeholder": "Select country",
-      "label": "Country"
-    },
-    "validateErrors": {
-      "serverError": "Server error",
-      "noData": "Not data",
-      "incorrectAge": "Incorrect age",
-      "incorrectCity": "Incorrect city",
-      "incorrectUserData": "Fields Firstname, Lastname, Login must not be empty"
-    }
-  },
-  "Профиль не найден": "Профиль не найден"
+    "Профиль не найден": "Профиль не найден"
 }

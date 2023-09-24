@@ -7,7 +7,9 @@ interface ArticleImageBlockComponentProps {
     block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = (props: ArticleImageBlockComponentProps) => {
+export const ArticleImageBlockComponent = (
+    props: ArticleImageBlockComponentProps,
+) => {
     const { className, block } = props;
     return (
         <div className={classNames(styles.root, {}, [className])}>

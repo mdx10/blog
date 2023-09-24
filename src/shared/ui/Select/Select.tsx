@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, useMemo,
-} from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './Select.module.scss';
 
@@ -39,15 +37,19 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value as T);
     };
-    const optionsList = useMemo(() => options?.map((opt) => (
-        <option
-            className={styles.option}
-            value={opt.value}
-            key={opt.value}
-        >
-            {opt.content}
-        </option>
-    )), [options]);
+    const optionsList = useMemo(
+        () =>
+            options?.map((opt) => (
+                <option
+                    className={styles.option}
+                    value={opt.value}
+                    key={opt.value}
+                >
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
     if (label) {
         return (
@@ -69,7 +71,10 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
 
     return (
         <select
-            className={classNames(styles.select, {}, [className, styles[theme]])}
+            className={classNames(styles.select, {}, [
+                className,
+                styles[theme],
+            ])}
             value={value}
             onChange={onChangeHandler}
             placeholder={placeholder}

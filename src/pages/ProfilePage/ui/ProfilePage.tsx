@@ -4,7 +4,7 @@ import { Page } from '@/widgets/Page';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 
 const ProfilePage = () => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('profilePage');
 
     if (!id) return <h1>{t('Профиль не найден')}</h1>;

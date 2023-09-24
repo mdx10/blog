@@ -12,20 +12,19 @@ interface CountrySelectProps {
     label?: string;
 }
 
-const options = Object.values(Country).map((country) => ({ value: country, content: country }));
+const options = Object.values(Country).map((country) => ({
+    value: country,
+    content: country,
+}));
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        placeholder,
-        readonly,
-        label,
-    } = props;
+    const { className, value, onChange, placeholder, readonly, label } = props;
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

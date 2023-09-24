@@ -3,16 +3,20 @@ import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
-import { articlesPageActions, articlesPageReducer } from '../model/slice/articlesPageSlice';
 import {
-    getArticlesPageMounted,
-} from '../model/selectors/articlesPageSelectors';
+    articlesPageActions,
+    articlesPageReducer,
+} from '../model/slice/articlesPageSlice';
+import { getArticlesPageMounted } from '../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPage.module.scss';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList/ArticlesInfiniteList';
 

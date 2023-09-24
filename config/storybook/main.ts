@@ -66,10 +66,12 @@ const config: StorybookConfig = {
         });
         config!.module!.rules!.push(cssLoader, svgLoader);
         // @ts-ignore
-        config.plugins.push(new DefinePlugin({
-            __API__: JSON.stringify(''),
-            __IS_DEV__: true,
-        }));
+        config.plugins.push(
+            new DefinePlugin({
+                __API__: JSON.stringify(''),
+                __IS_DEV__: true,
+            }),
+        );
 
         return config;
     },

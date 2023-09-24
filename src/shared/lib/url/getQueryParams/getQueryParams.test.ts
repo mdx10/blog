@@ -48,6 +48,8 @@ describe('getQueryParams', () => {
             query: 'test?param=value',
         };
         const result = getQueryParams(params);
-        expect(result).toBe('?name=JohnSmith&age=25&city=NewYork&query=test%3Fparam%3Dvalue');
+        expect(result).toBe(
+            '?name=JohnSmith&age=25&city=NewYork&query=test%3Fparam%3Dvalue',
+        );
     });
 });

@@ -1,53 +1,53 @@
 {
-  "title": "Профиль",
-  "profilePage": "Профиль",
-  "fetchError": {
-    "desc": "Попробуйте обновить страницу",
-    "title": "Произошла ошибка"
-  },
-  "edit": "Редактировать",
-  "cancel": "Отменить",
-  "save": "Сохранить",
-  "form": {
-    "username": {
-      "placeholder": "Ваш логин",
-      "label": "Логин"
+    "title": "Профиль",
+    "profilePage": "Профиль",
+    "fetchError": {
+        "desc": "Попробуйте обновить страницу",
+        "title": "Произошла ошибка"
     },
-    "firstname": {
-      "placeholder": "Ваше имя",
-      "label": "Имя"
+    "edit": "Редактировать",
+    "cancel": "Отменить",
+    "save": "Сохранить",
+    "form": {
+        "username": {
+            "placeholder": "Ваш логин",
+            "label": "Логин"
+        },
+        "firstname": {
+            "placeholder": "Ваше имя",
+            "label": "Имя"
+        },
+        "lastname": {
+            "placeholder": "Ваша фамилия",
+            "label": "Фамилия"
+        },
+        "city": {
+            "placeholder": "Ваш город",
+            "label": "Город"
+        },
+        "age": {
+            "label": "Возраст",
+            "placeholder": "Ваш возраст"
+        },
+        "avatar": {
+            "placeholder": "Ссылка на аватар",
+            "label": "Аватар"
+        },
+        "currency": {
+            "placeholder": "Выберите валюту",
+            "label": "Валюта"
+        },
+        "country": {
+            "placeholder": "Выберите страну",
+            "label": "Страна"
+        },
+        "validateErrors": {
+            "serverError": "Ошибка сервера",
+            "noData": "Нет данных",
+            "incorrectAge": "Некорректный возраст",
+            "incorrectCity": "Некорректный город",
+            "incorrectUserData": "Поля Логин, Имя и Фамилия не должны быть пустыми"
+        }
     },
-    "lastname": {
-      "placeholder": "Ваша фамилия",
-      "label": "Фамилия"
-    },
-    "city": {
-      "placeholder": "Ваш город",
-      "label": "Город"
-    },
-    "age": {
-      "label": "Возраст",
-      "placeholder": "Ваш возраст"
-    },
-    "avatar": {
-      "placeholder": "Ссылка на аватар",
-      "label": "Аватар"
-    },
-    "currency": {
-      "placeholder": "Выберите валюту",
-      "label": "Валюта"
-    },
-    "country": {
-      "placeholder": "Выберите страну",
-      "label": "Страна"
-    },
-    "validateErrors": {
-      "serverError": "Ошибка сервера",
-      "noData": "Нет данных",
-      "incorrectAge": "Некорректный возраст",
-      "incorrectCity": "Некорректный город",
-      "incorrectUserData": "Поля Логин, Имя и Фамилия не должны быть пустыми"
-    }
-  },
-  "Профиль не найден": "Профиль не найден"
+    "Профиль не найден": "Профиль не найден"
 }

@@ -10,8 +10,16 @@ interface LoaderProps {
     className?: string;
     theme?: LoaderTheme;
 }
-export const Loader = ({ className, theme = LoaderTheme.PRIMARY }: LoaderProps) => (
-    <div className={classNames(styles['lds-ellipsis'], {}, [className, styles[theme]])}>
+export const Loader = ({
+    className,
+    theme = LoaderTheme.PRIMARY,
+}: LoaderProps) => (
+    <div
+        className={classNames(styles['lds-ellipsis'], {}, [
+            className,
+            styles[theme],
+        ])}
+    >
         <div />
         <div />
         <div />

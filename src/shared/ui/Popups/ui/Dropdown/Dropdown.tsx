@@ -21,26 +21,21 @@ interface DropdownProps {
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
-    const {
-        className,
-        trigger,
-        items,
-        direction = 'bottomLeft',
-    } = props;
+    const { className, trigger, items, direction = 'bottomLeft' } = props;
     return (
         <Menu as="div" className={classNames(styles.root, {}, [className])}>
-            <Menu.Button>
-                {trigger}
-            </Menu.Button>
-            <Menu.Items className={classNames(styles.items, {}, [popupCls[direction]])}>
+            <Menu.Button>{trigger}</Menu.Button>
+            <Menu.Items
+                className={classNames(styles.items, {}, [popupCls[direction]])}
+            >
                 {items.map((item) => {
-                    const content = ({ active }: { active: boolean}) => (
+                    const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
-                            className={classNames(
-                                styles.item,
-                                { [popupCls.active]: active, [popupCls.disabled]: item.disabled },
-                            )}
+                            className={classNames(styles.item, {
+                                [popupCls.active]: active,
+                                [popupCls.disabled]: item.disabled,
+                            })}
                             onClick={item.onClick}
                         >
                             {item.content}
@@ -60,7 +55,11 @@ export const Dropdown = memo((props: DropdownProps) => {
                         );
                     }
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled} key={item.content as string}>
+                        <Menu.Item
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={item.content as string}
+                        >
                             {content}
                         </Menu.Item>
                     );

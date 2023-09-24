@@ -22,7 +22,6 @@ interface ProfileCardProps {
     onChangeAvatar?: (value: string) => void;
     onChangeCurrency?: (value: Currency) => void;
     onChangeCountry?: (value: Country) => void;
-
 }
 export const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profilePage');
@@ -44,7 +43,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.root, {}, [className, styles.loader])}>
+            <div
+                className={classNames(styles.root, {}, [
+                    className,
+                    styles.loader,
+                ])}
+            >
                 <Loader />
             </div>
         );
@@ -60,7 +64,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <div className={classNames(styles.root, { [styles.editing]: !readonly }, [className])}>
+        <div
+            className={classNames(
+                styles.root,
+                { [styles.editing]: !readonly },
+                [className],
+            )}
+        >
             <div className={styles.data}>
                 {data?.avatar && (
                     <div className={styles.avatarWrap}>

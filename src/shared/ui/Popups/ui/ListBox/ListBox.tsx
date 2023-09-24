@@ -45,16 +45,24 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
             value={value}
             onChange={onChange}
             as="div"
-            className={classNames(styles.root, { [styles.disabled]: readonly }, [className])}
+            className={classNames(
+                styles.root,
+                { [styles.disabled]: readonly },
+                [className],
+            )}
             disabled={readonly}
         >
-            {label && <Listbox.Label className={styles.label}>{label}</Listbox.Label>}
+            {label && (
+                <Listbox.Label className={styles.label}>{label}</Listbox.Label>
+            )}
             <Listbox.Button
                 className={classNames(styles.trigger, {}, [styles[theme]])}
             >
                 {value ?? placeholder}
             </Listbox.Button>
-            <Listbox.Options className={classNames(styles.options, {}, [styles[direction]])}>
+            <Listbox.Options
+                className={classNames(styles.options, {}, [styles[direction]])}
+            >
                 {options?.map((option) => (
                     <Listbox.Option
                         key={option.value}
@@ -64,14 +72,11 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
                     >
                         {({ active, selected }) => (
                             <li
-                                className={classNames(
-                                    styles.option,
-                                    {
-                                        [styles.active]: active,
-                                        [styles.selected]: selected,
-                                        [styles.disabled]: option.disabled,
-                                    },
-                                )}
+                                className={classNames(styles.option, {
+                                    [styles.active]: active,
+                                    [styles.selected]: selected,
+                                    [styles.disabled]: option.disabled,
+                                })}
                             >
                                 {option.content}
                             </li>

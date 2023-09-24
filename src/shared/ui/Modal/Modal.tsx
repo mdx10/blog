@@ -13,9 +13,7 @@ interface ModalProps {
     onClose?: () => void;
 }
 export const Modal = (props: ModalProps) => {
-    const {
-        className, children, isOpen, onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const { theme } = useTheme();
 
@@ -24,13 +22,15 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div
-                className={classNames(styles.root, { [styles.opened]: isOpen }, [className, theme])}
+                className={classNames(
+                    styles.root,
+                    { [styles.opened]: isOpen },
+                    [className, theme],
+                )}
                 data-testid="modal"
             >
                 <Overlay onClick={close} />
-                <div className={styles.content}>
-                    {children}
-                </div>
+                <div className={styles.content}>{children}</div>
             </div>
         </Portal>
     );

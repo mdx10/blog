@@ -6,10 +6,11 @@ import styles from './ArticleListItem.module.scss';
 interface ArticleListItemSkeletonProps {
     className?: string;
     view: ArticleView;
-
 }
 
-export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
+export const ArticleListItemSkeleton = (
+    props: ArticleListItemSkeletonProps,
+) => {
     const { className, view } = props;
 
     if (view === ArticleView.LIST) {
@@ -28,7 +29,11 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                 <div className={styles.footer}>
                     <Skeleton className={styles.image} height={25} width={80} />
                     <div className={styles.viewsWrap}>
-                        <Skeleton className={styles.image} height={25} width={60} />
+                        <Skeleton
+                            className={styles.image}
+                            height={25}
+                            width={60}
+                        />
                     </div>
                 </div>
             </div>

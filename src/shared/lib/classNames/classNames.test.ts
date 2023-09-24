@@ -10,7 +10,7 @@ describe('classNames', () => {
     });
 
     test('correct class name with mods', () => {
-        const mods:any = {
+        const mods: any = {
             'foo--active': true,
             'foo--hidden': false,
             'foo--large': 'yes',
@@ -21,14 +21,15 @@ describe('classNames', () => {
     });
 
     test('correct class name with mixed input', () => {
-        const mods:any = {
+        const mods: any = {
             'foo--active': true,
             'foo--hidden': false,
             'foo--large': 'yes',
             'foo--red': null,
             'foo--blue': undefined,
         };
-        expect(classNames('foo', mods, ['bar', 'baz']))
-            .toBe('foo bar baz foo--active foo--large');
+        expect(classNames('foo', mods, ['bar', 'baz'])).toBe(
+            'foo bar baz foo--active foo--large',
+        );
     });
 });

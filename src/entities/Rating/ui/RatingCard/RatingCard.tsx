@@ -21,21 +21,30 @@ interface RatingCardProps {
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, onAccept, onCancel, title, feedbackTitle, hasFeedback, rate = 0,
+        className,
+        onAccept,
+        onCancel,
+        title,
+        feedbackTitle,
+        hasFeedback,
+        rate = 0,
     } = props;
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
     const { t } = useTranslation();
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsOpenModal(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsOpenModal(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandler = useCallback(() => {
         setIsOpenModal(false);
@@ -52,8 +61,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <h3 className={styles.title}>{feedbackTitle}</h3>
             <Input label="Ваш отзыв" value={feedback} onChange={setFeedback} />
             <div className={styles.buttons}>
-                <Button onClick={acceptHandler} theme={ThemeButton.ACCENT}>Отправить</Button>
-                <Button onClick={canselHandler} theme={ThemeButton.PRIMARY}>Закрыть</Button>
+                <Button onClick={acceptHandler} theme={ThemeButton.ACCENT}>
+                    Отправить
+                </Button>
+                <Button onClick={canselHandler} theme={ThemeButton.PRIMARY}>
+                    Закрыть
+                </Button>
             </div>
         </div>
     );
@@ -61,8 +74,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             <div className={styles.ratingContent}>
-                <h4 className={styles.title}>{starsCount ? t('Спасибо за вашу оценку!') : title}</h4>
-                <StarRating selectedStars={starsCount} size={54} onSelect={onSelectStars} />
+                <h4 className={styles.title}>
+                    {starsCount ? t('Спасибо за вашу оценку!') : title}
+                </h4>
+                <StarRating
+                    selectedStars={starsCount}
+                    size={54}
+                    onSelect={onSelectStars}
+                />
             </div>
             <BrowserView>
                 <Modal isOpen={isOpenModal} onClose={canselHandler}>

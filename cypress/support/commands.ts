@@ -15,19 +15,22 @@ import { USER_KEY } from '../../src/shared/constants/localstorage';
 import { User } from '@/entities/User';
 import { selectByTestid } from '../helpers/selectByTestid';
 
-Cypress.Commands.add('login', (username: string = 'testuser', password: string = '123') => {
-    cy.request({
-        method: 'POST',
-        url: 'http://localhost:8000/login',
-        body: {
-            username,
-            password,
-        },
-    }).then(({ body }) => {
-        window.localStorage.setItem(USER_KEY, JSON.stringify(body));
-        return body;
-    });
-});
+Cypress.Commands.add(
+    'login',
+    (username: string = 'testuser', password: string = '123') => {
+        cy.request({
+            method: 'POST',
+            url: 'http://localhost:8000/login',
+            body: {
+                username,
+                password,
+            },
+        }).then(({ body }) => {
+            window.localStorage.setItem(USER_KEY, JSON.stringify(body));
+            return body;
+        });
+    },
+);
 
 Cypress.Commands.add('updateProfile', (firstname: string, lastname: string) => {
     cy.getByTestId('EditableProfileCardHeader.EditBtn').click();
@@ -55,17 +58,19 @@ Cypress.Commands.add('resetProfile', (profileId: string) => {
     });
 });
 
-Cypress.Commands.add('getByTestId', (testId: string) => cy.get(selectByTestid(testId)));
+Cypress.Commands.add('getByTestId', (testId: string) =>
+    cy.get(selectByTestid(testId)),
+);
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(username?: string, password?: string): Chainable<User>;
-      getByTestId(testId: string): Chainable<JQuery<HTMLElement>>;
-      updateProfile(firstname: string, lastname: string): Chainable<void>;
-      resetProfile(profileId: string): Chainable<void>
+    namespace Cypress {
+        interface Chainable {
+            login(username?: string, password?: string): Chainable<User>;
+            getByTestId(testId: string): Chainable<JQuery<HTMLElement>>;
+            updateProfile(firstname: string, lastname: string): Chainable<void>;
+            resetProfile(profileId: string): Chainable<void>;
+        }
     }
-  }
 }
 
 export {};

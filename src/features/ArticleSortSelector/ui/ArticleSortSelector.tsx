@@ -14,35 +14,39 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
-    const {
-        className, sort, order, onChangeOrder, onChangeSort,
-    } = props;
+    const { className, sort, order, onChangeOrder, onChangeSort } = props;
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            value: 'asc',
-            content: 'по возрастанию',
-        },
-        {
-            value: 'desc',
-            content: 'по убыванию',
-        },
-    ], []);
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: 'по возрастанию',
+            },
+            {
+                value: 'desc',
+                content: 'по убыванию',
+            },
+        ],
+        [],
+    );
 
-    const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            value: ArticleSortField.CREATED,
-            content: 'по дате',
-        },
-        {
-            value: ArticleSortField.VIEW,
-            content: 'по просмотам',
-        },
-        {
-            value: ArticleSortField.TITLE,
-            content: 'по названию',
-        },
-    ], []);
+    const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.CREATED,
+                content: 'по дате',
+            },
+            {
+                value: ArticleSortField.VIEW,
+                content: 'по просмотам',
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: 'по названию',
+            },
+        ],
+        [],
+    );
 
     return (
         <div className={classNames(styles.root, {}, [className])}>

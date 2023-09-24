@@ -18,9 +18,7 @@ export const Code = (props: CodeProps) => {
             <Button className={styles.button} onClick={onCopy}>
                 <CopyIcon className={styles.icon} />
             </Button>
-            <code className={styles.code}>
-                {text}
-            </code>
+            <code className={styles.code}>{text}</code>
         </pre>
     );
 };

@@ -4,7 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getAuthData, isUserAdmin, isUserManager, userActions,
+    getAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/constants/router';
 
@@ -31,10 +34,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     return (
         <Dropdown
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: 'Админка',
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: 'Админка',
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: 'Профиль',
                     href: getRouteProfile(authData.id),

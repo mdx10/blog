@@ -7,9 +7,7 @@ const meta: Meta<typeof Navbar> = {
     title: 'widgets/Navbar',
     component: Navbar,
     tags: ['autodocs'],
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };
 
 export default meta;

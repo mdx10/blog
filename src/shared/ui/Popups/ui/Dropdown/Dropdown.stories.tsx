@@ -9,9 +9,13 @@ const meta: Meta<typeof Dropdown> = {
     tags: ['autodocs'],
     decorators: [
         (Story) => (
-            <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh',
-            }}
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '100vh',
+                }}
             >
                 <Story />
             </div>

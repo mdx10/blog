@@ -30,7 +30,5 @@ export const Primary: Story = {
 export const NotAuth: Story = {
     args: {},
 
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };

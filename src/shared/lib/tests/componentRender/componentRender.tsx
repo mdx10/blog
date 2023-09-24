@@ -12,15 +12,17 @@ export interface componentRenderOptions {
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
-export const componentRender = (component: ReactNode, options: componentRenderOptions = {}) => {
-    const {
-        route = '/',
-        initialState,
-        asyncReducers,
-    } = options;
+export const componentRender = (
+    component: ReactNode,
+    options: componentRenderOptions = {},
+) => {
+    const { route = '/', initialState, asyncReducers } = options;
     return render(
         <MemoryRouter initialEntries={[route]}>
-            <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
+            <StoreProvider
+                initialState={initialState}
+                asyncReducers={asyncReducers}
+            >
                 <I18nextProvider i18n={i18nForTest}>
                     {component}
                 </I18nextProvider>

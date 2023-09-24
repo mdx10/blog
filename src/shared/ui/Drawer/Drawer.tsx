@@ -13,9 +13,7 @@ interface DrawerProps {
     onClose?: () => void;
 }
 export const Drawer = (props: DrawerProps) => {
-    const {
-        className, children, isOpen, onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const { theme } = useTheme();
 
@@ -24,11 +22,18 @@ export const Drawer = (props: DrawerProps) => {
     return (
         <Portal>
             <div
-                className={classNames(styles.root, { [styles.opened]: isOpen }, [className, theme])}
+                className={classNames(
+                    styles.root,
+                    { [styles.opened]: isOpen },
+                    [className, theme],
+                )}
                 data-testid="drawer"
             >
                 <Overlay onClick={close} />
-                <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+                <div
+                    className={styles.content}
+                    onClick={(e) => e.stopPropagation()}
+                >
                     {children}
                 </div>
             </div>

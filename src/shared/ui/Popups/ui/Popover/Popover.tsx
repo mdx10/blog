@@ -15,14 +15,20 @@ interface PopoverProps {
 
 export const Popover = memo((props: PopoverProps) => {
     const {
-        className, trigger, direction = 'bottomLeft', children, onClick,
+        className,
+        trigger,
+        direction = 'bottomLeft',
+        children,
+        onClick,
     } = props;
 
     return (
-        <HPopover
-            className={classNames(styles.root, {}, [className])}
-        >
-            <HPopover.Button className={styles.trigger} onClick={onClick} as="div">
+        <HPopover className={classNames(styles.root, {}, [className])}>
+            <HPopover.Button
+                className={styles.trigger}
+                onClick={onClick}
+                as="div"
+            >
                 {trigger}
             </HPopover.Button>
 

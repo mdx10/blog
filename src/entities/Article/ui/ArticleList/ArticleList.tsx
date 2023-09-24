@@ -14,10 +14,11 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    // eslint-disable-next-line react/no-array-index-key
-    .map((item, index) => <ArticleListItemSkeleton key={index} view={view} />);
+const getSkeleton = (view: ArticleView) =>
+    new Array(view === ArticleView.GRID ? 9 : 3).fill(0).map((item, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <ArticleListItemSkeleton key={index} view={view} />
+    ));
 
 export const ArticleList = (props: ArticleListProps) => {
     const {
@@ -29,7 +30,12 @@ export const ArticleList = (props: ArticleListProps) => {
     } = props;
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem key={article.id} article={article} view={view} target={target} />
+        <ArticleListItem
+            key={article.id}
+            article={article}
+            view={view}
+            target={target}
+        />
     );
 
     if (!isLoading && !articles.length) {

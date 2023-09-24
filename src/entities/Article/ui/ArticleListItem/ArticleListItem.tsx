@@ -3,11 +3,12 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
 import { Avatar } from '@/shared/ui/Avatar';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
-    Article, ArticleTextBlock,
-} from '../../model/types/Article';
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { Article, ArticleTextBlock } from '../../model/types/Article';
 import styles from './ArticleListItem.module.scss';
 import { getRouteArticleDetails } from '@/shared/constants/router';
 import { AppImage } from '@/shared/ui/AppImage';
@@ -21,12 +22,12 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
-    const {
-        className, view, article, target,
-    } = props;
+    const { className, view, article, target } = props;
 
     if (view === ArticleView.LIST) {
-        const textBlock = article?.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article?.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
             <div className={classNames(styles[view], {}, [className])}>
@@ -45,7 +46,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     src={article?.img}
                     alt={article?.title}
                 />
-                {textBlock && <ArticleTextBlockComponent className={styles.textBlock} block={textBlock} />}
+                {textBlock && (
+                    <ArticleTextBlockComponent
+                        className={styles.textBlock}
+                        block={textBlock}
+                    />
+                )}
                 <div className={styles.footer}>
                     <AppLink
                         // eslint-disable-next-line no-unsafe-optional-chaining

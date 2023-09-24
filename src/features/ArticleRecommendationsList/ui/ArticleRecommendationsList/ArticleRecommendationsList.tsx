@@ -9,23 +9,29 @@ interface ArticleRecommendationsListProps {
     className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const { data: articles, isLoading, error } = useArticleRecommendationsList(4);
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
+        const {
+            data: articles,
+            isLoading,
+            error,
+        } = useArticleRecommendationsList(4);
 
-    if (!articles || error) {
-        return null;
-    }
+        if (!articles || error) {
+            return null;
+        }
 
-    return (
-        <div className={classNames(styles.root, {}, [className])}>
-            <h2>{t('Рекоммендации')}</h2>
-            <ArticleList
-                articles={articles}
-                target="_blank"
-                isLoading={isLoading}
-            />
-        </div>
-    );
-});
+        return (
+            <div className={classNames(styles.root, {}, [className])}>
+                <h2>{t('Рекоммендации')}</h2>
+                <ArticleList
+                    articles={articles}
+                    target="_blank"
+                    isLoading={isLoading}
+                />
+            </div>
+        );
+    },
+);

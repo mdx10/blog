@@ -7,18 +7,17 @@ import { SidebarItemType } from '../../model/types/Sidebar';
 import styles from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item: SidebarItemType,
-    collapsed: boolean,
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation(item.text);
     const isAuth = useSelector(getAuthData);
-    const linkClassName = (active: boolean) => (
+    const linkClassName = (active: boolean) =>
         classNames(styles.navLink, {
             [styles.navLinkActive]: active,
             [styles.collapsed]: collapsed,
-        })
-    );
+        });
 
     if (item.authOnly && !isAuth) return null;
 

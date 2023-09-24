@@ -7,7 +7,10 @@ export enum ThemeInput {
     PRIMARY = 'primary',
 }
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange'
+>;
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
@@ -28,7 +31,8 @@ export const Input = memo((props: InputProps) => {
         label,
         ...otherProps
     } = props;
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>
+        onChange?.(e.target.value);
 
     if (label) {
         return (
@@ -39,7 +43,10 @@ export const Input = memo((props: InputProps) => {
                     value={value}
                     onChange={onChangeHandler}
                     type={type}
-                    className={classNames(styles.input, {}, [className, styles[theme]])}
+                    className={classNames(styles.input, {}, [
+                        className,
+                        styles[theme],
+                    ])}
                     readOnly={readonly}
                     {...otherProps}
                 />

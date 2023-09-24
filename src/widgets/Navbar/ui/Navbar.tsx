@@ -25,25 +25,32 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(styles.navbar, {}, [className])}>
             <div className={styles.container}>
                 {authData && (
-                    <AppLink to={getRouteArticleCreate()}>Создать статью</AppLink>
+                    <AppLink to={getRouteArticleCreate()}>
+                        Создать статью
+                    </AppLink>
                 )}
                 <div className={styles.switchers}>
                     <ThemeSwitcher />
                     <LangSwitcher />
                 </div>
-                {
-                    authData ? (
-                        <div className={styles.actions}>
-                            <NotificationButton />
-                            <AvatarDropdown />
-                        </div>
-                    ) : (
-                        <>
-                            <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>Войти</Button>
-                            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
-                        </>
-                    )
-                }
+                {authData ? (
+                    <div className={styles.actions}>
+                        <NotificationButton />
+                        <AvatarDropdown />
+                    </div>
+                ) : (
+                    <>
+                        <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>
+                            Войти
+                        </Button>
+                        {isAuthModal && (
+                            <LoginModal
+                                isOpen={isAuthModal}
+                                onClose={onCloseModal}
+                            />
+                        )}
+                    </>
+                )}
             </div>
         </header>
     );

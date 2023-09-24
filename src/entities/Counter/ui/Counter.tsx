@@ -15,10 +15,7 @@ export const Counter = () => {
     };
     return (
         <div>
-            <p data-testid="value-title">
-                value =
-                {counterValue}
-            </p>
+            <p data-testid="value-title">value ={counterValue}</p>
             <Button
                 onClick={increment}
                 theme={ThemeButton.ACCENT}

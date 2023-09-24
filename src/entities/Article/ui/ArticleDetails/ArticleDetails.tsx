@@ -2,7 +2,10 @@ import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -46,14 +49,20 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent key={block.id} block={block} />;
-        case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent key={block.id} block={block} />;
-        case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent key={block.id} block={block} />;
-        default:
-            return null;
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent key={block.id} block={block} />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent key={block.id} block={block} />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent key={block.id} block={block} />
+                );
+            default:
+                return null;
         }
     }, []);
 
@@ -62,7 +71,12 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <div className={styles.skeletons}>
-                <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
+                <Skeleton
+                    className={styles.avatar}
+                    width={200}
+                    height={200}
+                    border="50%"
+                />
                 <Skeleton width={300} height={40} />
                 <Skeleton width={100} height={18} />
                 <Skeleton width={100} height={18} />
@@ -76,7 +90,11 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
         content = (
             <>
                 <div className={styles.avatarWrap}>
-                    <Avatar size={200} src={article?.img} className={styles.avatar} />
+                    <Avatar
+                        size={200}
+                        src={article?.img}
+                        className={styles.avatar}
+                    />
                 </div>
                 <h1 className={styles.title}>{article?.title}</h1>
                 <div className={styles.info}>

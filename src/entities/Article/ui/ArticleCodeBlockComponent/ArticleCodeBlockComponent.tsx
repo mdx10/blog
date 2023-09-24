@@ -8,7 +8,9 @@ interface ArticleCodeBlockComponentProps {
     block: ArticleCodeBlock;
 }
 
-export const ArticleCodeBlockComponent = (props: ArticleCodeBlockComponentProps) => {
+export const ArticleCodeBlockComponent = (
+    props: ArticleCodeBlockComponentProps,
+) => {
     const { className, block } = props;
     return (
         <div className={classNames(styles.root, {}, [className])}>

@@ -15,31 +15,36 @@ interface ArticleDetailsCommentsProps {
     id: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const { className, id } = props;
-    const dispatch = useAppDispatch();
+export const ArticleDetailsComments = memo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, id } = props;
+        const dispatch = useAppDispatch();
 
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+        const comments = useSelector(getArticleComments.selectAll);
+        const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text));
+            },
+            [dispatch],
+        );
 
-    useEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
-    }, [id, dispatch]);
+        useEffect(() => {
+            dispatch(fetchCommentsByArticleId(id));
+        }, [id, dispatch]);
 
-    return (
-        <div className={classNames(styles.root, {}, [className])}>
-            <AddCommentForm
-                onSendComment={onSendComment}
-                isLoading={commentsIsLoading}
-            />
-            <CommentList
-                isLoading={commentsIsLoading}
-                comments={comments}
-            />
-        </div>
-    );
-});
+        return (
+            <div className={classNames(styles.root, {}, [className])}>
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                    isLoading={commentsIsLoading}
+                />
+                <CommentList
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
+            </div>
+        );
+    },
+);

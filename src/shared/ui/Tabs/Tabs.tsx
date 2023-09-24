@@ -14,16 +14,21 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-    const {
-        className, tabs, value, onTabClick,
-    } = props;
-    const clickHandler = useCallback((tab: TabItem) => () => onTabClick(tab), [onTabClick]);
+    const { className, tabs, value, onTabClick } = props;
+    const clickHandler = useCallback(
+        (tab: TabItem) => () => onTabClick(tab),
+        [onTabClick],
+    );
     return (
         <div className={classNames('', {}, [className])}>
             {tabs.map((tab) => (
                 <Button
                     key={tab.value}
-                    theme={tab.value === value ? ThemeButton.ACCENT : ThemeButton.INVERT}
+                    theme={
+                        tab.value === value
+                            ? ThemeButton.ACCENT
+                            : ThemeButton.INVERT
+                    }
                     onClick={clickHandler(tab)}
                 >
                     {tab.content}
