@@ -1,3 +1,4 @@
+[![CI](https://github.com/mdx10/blog/actions/workflows/CI.yml/badge.svg)](https://github.com/mdx10/blog/actions/workflows/CI.yml)
 ## Запуск проекта
 
 ```
