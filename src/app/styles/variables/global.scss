@@ -1,20 +1,5 @@
 :root {
-    --font-family-main:
-        "Inter var",
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        blinkmacsystemfont,
-        segoe ui,
-        roboto,
-        helvetica neue,
-        arial,
-        noto sans,
-        sans-serif,
-        apple color emoji,
-        segoe ui emoji,
-        segoe ui symbol,
-        noto color emoji;
+    --font-family-main: "Roboto", sans-serif;
     --font-size-s: 14px;
     --font-line-s: 22px;
     --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
@@ -31,7 +16,7 @@
     // Size
     --navbar-height: 52px;
     --sidebar-width: 220px;
-    --sidebar-width-collapsed: 66px;
+    --sidebar-width-collapsed: 50px;
 
     // Z-indexes
     --modal-z-index: 10;

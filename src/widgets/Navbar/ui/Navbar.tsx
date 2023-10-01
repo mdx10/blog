@@ -1,8 +1,6 @@
-import { memo, useState } from 'react';
+import React, { Fragment, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { LangSwitcher } from '@/features/LangSwitcher';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getAuthData } from '@/entities/User';
@@ -23,35 +21,25 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(styles.navbar, {}, [className])}>
-            <div className={styles.container}>
-                {authData && (
-                    <AppLink to={getRouteArticleCreate()}>
-                        Создать статью
-                    </AppLink>
-                )}
-                <div className={styles.switchers}>
-                    <ThemeSwitcher />
-                    <LangSwitcher />
-                </div>
-                {authData ? (
-                    <div className={styles.actions}>
-                        <NotificationButton />
-                        <AvatarDropdown />
-                    </div>
-                ) : (
-                    <>
-                        <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>
-                            Войти
-                        </Button>
-                        {isAuthModal && (
-                            <LoginModal
-                                isOpen={isAuthModal}
-                                onClose={onCloseModal}
-                            />
-                        )}
-                    </>
-                )}
-            </div>
+            {authData && <AppLink to={getRouteArticleCreate()}>С</AppLink>}
+            {authData ? (
+                <>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </>
+            ) : (
+                <>
+                    <Button theme={ThemeButton.CLEAR} onClick={onOpenModal}>
+                        Войти
+                    </Button>
+                    {isAuthModal && (
+                        <LoginModal
+                            isOpen={isAuthModal}
+                            onClose={onCloseModal}
+                        />
+                    )}
+                </>
+            )}
         </header>
     );
 });

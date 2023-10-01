@@ -6,6 +6,8 @@ import ChevronIcon from '@/shared/assets/icons/right-chevron.svg';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import styles from './Sidebar.module.scss';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 
 interface SidebarProps {
     className?: string;
@@ -33,6 +35,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     />
                 ))}
             </nav>
+            <div className={styles.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher />
+            </div>
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
