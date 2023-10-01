@@ -49,7 +49,10 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(styles.root, {}, [className])}>
+            <form
+                className={classNames(styles.root, {}, [className])}
+                onSubmit={onSubmit}
+            >
                 <Input
                     placeholder="Введите логин"
                     theme={ThemeInput.INVERT}
@@ -68,11 +71,12 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
                     theme={ThemeButton.ACCENT}
                     onClick={onSubmit}
                     disabled={isLoading}
+                    type="submit"
                 >
                     Войти
                 </Button>
                 {error && <p>Неверный логин или пароль</p>}
-            </div>
+            </form>
         </DynamicModuleLoader>
     );
 };

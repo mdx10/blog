@@ -37,7 +37,7 @@ const articlesPageSlice = createSlice({
         search: '',
         sort: ArticleSortField.CREATED,
         order: 'asc',
-        limit: 9,
+        limit: 20,
         type: ArticleType.ALL,
     }),
     reducers: {
@@ -67,7 +67,7 @@ const articlesPageSlice = createSlice({
             const searchFromUrl = action.payload.get('search');
             const typeFromUrl = action.payload.get('type') as ArticleType;
             state.view = view;
-            state.limit = view === ArticleView.GRID ? 9 : 4;
+            state.limit = view === ArticleView.GRID ? 20 : 4;
             state._mounted = true;
             if (sortFromUrl) state.sort = sortFromUrl;
             if (orderFromUrl) state.order = orderFromUrl;
