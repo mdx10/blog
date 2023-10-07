@@ -1,14 +1,25 @@
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: var(--sidebar-width);
-    height: calc(100vh - var(--navbar-height));
-    background: var(--bg-color-invert);
+    height: 100%;
+    background: var(--light-bg);
     transition: width 0.2s;
     position: relative;
-    padding: 16px;
+    padding: 22px 0 40px;
     flex-shrink: 0;
+    border-radius: 32px;
+}
+
+.logo {
+    padding: 0 16px;
+    color: var(--text-color);
+    min-width: var(--sidebar-width);
+    position: absolute;
 }
 
 .nav {
+    margin-top: 115px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -16,25 +27,42 @@
 
 .collapseButton {
     position: absolute;
-    right: 17px;
-    bottom: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
 }
 
 .buttonIcon {
-    fill: var(--primary-color-invert);
+    fill: var(--icon-color);
     transform: rotate(180deg);
     transition: 0.2s;
 }
 
+.switchers {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.switcher {
+    color: var(--icon-color);
+}
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
-    padding: 0;
+    overflow-x: hidden;
 
-    .nav {
-        gap: 0;
+    .logo {
+        padding-left: 3px;
     }
 
     .buttonIcon {
         transform: rotate(0);
+    }
+
+    .switchers {
+        flex-direction: column;
     }
 }

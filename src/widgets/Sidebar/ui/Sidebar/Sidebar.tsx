@@ -1,8 +1,10 @@
 import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, SizeButton, ThemeButton } from '@/shared/ui/Button';
 import ChevronIcon from '@/shared/assets/icons/right-chevron.svg';
+import Logo from '@/shared/assets/icons/logoipsum.svg';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import styles from './Sidebar.module.scss';
@@ -15,6 +17,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+    const { pathname } = useLocation();
     const onToggle = () => setCollapsed((prev) => !prev);
     const sidebarItemsList = useSelector(getSidebarItems);
     return (
@@ -26,18 +29,21 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 [className],
             )}
         >
+            <div className={styles.logo}>
+                <Logo />
+            </div>
             <nav className={styles.nav}>
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
-                        collapsed={collapsed}
                         key={item.path}
+                        active={pathname === item.path}
                     />
                 ))}
             </nav>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher />
+                <LangSwitcher className={styles.switcher} />
             </div>
             <Button
                 data-testid="sidebar-toggle"
