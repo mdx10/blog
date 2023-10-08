@@ -8,7 +8,7 @@
 
 .navLink.navLinkActive {
     background: linear-gradient(90deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
-    color: var(--accent);
+    color: var(--icon-color);
 
     &::before {
         content: "";
@@ -30,14 +30,7 @@
     position: relative;
 
     &:hover {
-        &::before {
-            content: "";
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background-color: var(--accent);
-            left: 0;
-        }
+        color: var(--accent);
 
         .navIcon {
             color: var(--accent);

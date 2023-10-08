@@ -25,13 +25,6 @@
     gap: 8px;
 }
 
-.collapseButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 10px;
-}
-
 .buttonIcon {
     fill: var(--icon-color);
     transform: rotate(180deg);
@@ -48,6 +41,10 @@
 
 .switcher {
     color: var(--icon-color);
+
+    &:hover {
+        color: var(--accent);
+    }
 }
 
 .collapsed {
@@ -64,5 +61,18 @@
 
     .switchers {
         flex-direction: column;
+    }
+}
+
+.collapseButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+
+    &:hover {
+        .buttonIcon {
+            fill: var(--accent);
+        }
     }
 }
