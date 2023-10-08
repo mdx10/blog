@@ -1,6 +1,14 @@
 .root {
     min-width: 270px;
-    padding: 12px;
-    border: 1px solid var(--accent-color);
-    border-radius: 4px;
+    padding: 0 16px 8px;
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.desc {
+    font-size: 16px;
 }

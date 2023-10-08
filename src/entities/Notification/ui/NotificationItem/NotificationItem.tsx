@@ -19,15 +19,15 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
                 to={item.href}
                 target="_blank"
             >
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
+                <h4 className={styles.title}>{item.title}</h4>
+                <p className={styles.desc}>{item.description}</p>
             </AppLink>
         );
     }
     return (
         <div className={classNames(styles.root, {}, [className])}>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
+            <h4 className={styles.title}>{item.title}</h4>
+            <p className={styles.desc}>{item.description}</p>
         </div>
     );
 });

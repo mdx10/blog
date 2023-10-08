@@ -5,14 +5,17 @@
 .items {
     position: absolute;
     z-index: 999;
-    background: var(--bg-color-invert);
-    color: var(--primary-color-invert);
-    border-radius: 4px;
-    padding: 2px 0;
+    background: var(--dark-bg);
+    color: var(--text-color);
+    border-radius: 18px;
+    padding: 8px 0;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--accent);
+    overflow: hidden;
 }
 
 .item {
-    padding: 6px 12px;
+    width: 100%;
+    padding: 6px 16px;
 }

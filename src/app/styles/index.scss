@@ -28,16 +28,16 @@ h2 {
     font-weight: 500;
 }
 
-//*::-webkit-scrollbar {
-//    width: 10px;               /* ширина всей полосы прокрутки */
-//    height: 8px;               /* ширина всей полосы прокрутки */
-//}
-//
-//*::-webkit-scrollbar-track {
-//    background: var(--light-bg);        /* цвет зоны отслеживания */
-//}
-//
-//*::-webkit-scrollbar-thumb {
-//    background-color: var(--icon-color);    /* цвет бегунка */
-//    border-radius: 20px;       /* округлось бегунка */
-//}
+*::-webkit-scrollbar {
+    width: 10px;               /* ширина всей полосы прокрутки */
+    height: 8px;               /* ширина всей полосы прокрутки */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--light-bg);        /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--icon-color);    /* цвет бегунка */
+    border-radius: 20px;       /* округлось бегунка */
+}

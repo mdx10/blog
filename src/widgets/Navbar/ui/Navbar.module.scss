@@ -4,3 +4,13 @@
     align-items: center;
     gap: 16px;
 }
+
+.addBtn {
+    width: 24px;
+    height: 24px;
+    color: var(--icon-color);
+
+    &:hover {
+        color: var(--accent);
+    }
+}

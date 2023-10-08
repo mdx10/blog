@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/ui/Button';
@@ -7,8 +7,9 @@ import { getAuthData } from '@/entities/User';
 import { AppLink } from '@/shared/ui/AppLink';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import styles from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/constants/router';
+import EditIcon from '@/shared/assets/icons/edit-icon.svg';
+import styles from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
@@ -21,9 +22,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(styles.navbar, {}, [className])}>
-            {authData && <AppLink to={getRouteArticleCreate()}>С</AppLink>}
             {authData ? (
                 <>
+                    <AppLink
+                        className={styles.addBtn}
+                        to={getRouteArticleCreate()}
+                    >
+                        <EditIcon />
+                    </AppLink>
                     <NotificationButton />
                     <AvatarDropdown />
                 </>
