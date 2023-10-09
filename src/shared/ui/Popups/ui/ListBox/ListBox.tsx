@@ -1,4 +1,4 @@
-import { Fragment, memo } from 'react';
+import { Fragment, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -27,7 +27,7 @@ interface ListBoxProps<T extends string> {
     direction?: DropdownDirection;
 }
 
-export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
+export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const {
         className,
         theme = ThemeListBox.PRIMARY,
@@ -39,6 +39,11 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
         direction = 'bottomLeft',
         onChange,
     } = props;
+
+    const selectedItem = useMemo(
+        () => options?.find((option) => option.value === value),
+        [options, value],
+    );
 
     return (
         <Listbox
@@ -58,7 +63,9 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
             <Listbox.Button
                 className={classNames(styles.trigger, {}, [styles[theme]])}
             >
-                {value ?? placeholder}
+                {selectedItem?.content ?? (
+                    <span className={styles.placeholder}>{placeholder}</span>
+                )}
             </Listbox.Button>
             <Listbox.Options
                 className={classNames(styles.options, {}, [styles[direction]])}
@@ -86,4 +93,4 @@ export const ListBox = memo(<T extends string>(props: ListBoxProps<T>) => {
             </Listbox.Options>
         </Listbox>
     );
-});
+};

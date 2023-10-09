@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Select, SelectOption } from '@/shared/ui/Select';
+import { SelectOption } from '@/shared/ui/Select';
 import { SortOrder } from '@/shared/types/sort';
 import styles from './ArticleSortSelector.module.scss';
 import { ArticleSortField } from '@/entities/Article';
+import { ListBox } from '@/shared/ui/Popups';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -50,14 +51,14 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
 
     return (
         <div className={classNames(styles.root, {}, [className])}>
-            <Select
+            <ListBox
                 className={styles.sort}
                 placeholder="Сортировать по"
                 options={sortOptions}
                 value={sort}
                 onChange={onChangeSort}
             />
-            <Select
+            <ListBox
                 className={styles.sort}
                 placeholder="по"
                 options={orderOptions}

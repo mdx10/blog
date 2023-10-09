@@ -1,5 +1,10 @@
 .root {
-    height: 24px;
+    display: flex;
+    padding: 10px;
+    border-radius: 32px;
+    background: var(--dark-bg);
+    gap: 10px;
+    color: var(--light-bg);
 }
 
 .icon {
@@ -9,5 +14,5 @@
 }
 
 .selected {
-    fill: var(--accent-color);
+    fill: var(--accent);
 }

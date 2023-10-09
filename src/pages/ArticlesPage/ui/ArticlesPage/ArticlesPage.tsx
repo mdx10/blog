@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -9,16 +8,18 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
-import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
-import { fetchArticlesList } from '../model/services/fetchArticlesList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList';
 import {
     articlesPageActions,
     articlesPageReducer,
-} from '../model/slice/articlesPageSlice';
-import { getArticlesPageMounted } from '../model/selectors/articlesPageSelectors';
+} from '../../model/slice/articlesPageSlice';
+import { getArticlesPageMounted } from '../../model/selectors/articlesPageSelectors';
 import styles from './ArticlesPage.module.scss';
-import { ArticlesInfiniteList } from './ArticlesInfiniteList/ArticlesInfiniteList';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 
 interface ArticlesPageProps {
     className?: string;
@@ -30,7 +31,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('articlesPage');
     const dispatch = useAppDispatch();
     const mounted = useSelector(getArticlesPageMounted);
 
@@ -49,15 +49,19 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} notRemove>
-            <Page
-                onScrollEnd={onLoadNextPage}
-                className={classNames(styles.root, {}, [className])}
-                data-testid="ArticlesPage"
-            >
-                <ArticlesPageFilters className={styles.filters} />
-                <h1 className={styles.title}>{t('title')}</h1>
-                <ArticlesInfiniteList />
-            </Page>
+            <StickyContentLayout
+                left={<ViewSelectorContainer />}
+                content={
+                    <Page
+                        onScrollEnd={onLoadNextPage}
+                        className={classNames(styles.root, {}, [className])}
+                        data-testid="ArticlesPage"
+                    >
+                        <ArticlesInfiniteList />
+                    </Page>
+                }
+                right={<ArticlesPageFilters />}
+            />
         </DynamicModuleLoader>
     );
 };

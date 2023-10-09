@@ -29,7 +29,7 @@ export const Page = (props: PageProps) => {
 
     useInfiniteScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: undefined,
         callback: onScrollEnd,
     });
 

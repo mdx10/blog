@@ -8,11 +8,13 @@
 .options {
     position: absolute;
     z-index: 999;
-    background: var(--bg-color-invert);
-    color: var(--primary-color-invert);
-    border-radius: 4px;
-    padding: 2px 0;
+    background: var(--dark-bg);
+    color: var(--text-color);
+    border-radius: 18px;
+    border: 1px solid var(--accent);
+    padding: 8px 0;
     width: 100%;
+    overflow: hidden;
 }
 
 .bottomLeft {
@@ -24,15 +26,15 @@
 }
 
 .option {
-    padding: 2px 8px;
+    padding: 6px 16px;
 }
 
 .active {
-    background: var(--secondary-color);
+    background: var(--light-bg);
 }
 
 .selected {
-    background: var(--accent-color);
+    background: var(--light-bg);
 }
 
 .disabled {
@@ -40,17 +42,16 @@
 }
 
 .trigger {
-    padding: 8px 12px;
-    height: 38px;
-    border-radius: 6px;
+    padding: 5px 16px;
+    height: 32px;
+    border-radius: 34px;
     width: 100%;
     display: flex;
+    align-items: center;
+    background: var(--light-bg);
 
-    &::placeholder {
-        color: var(--input-placeholder-color);
-    }
-
-    &:focus {
+    &:focus,
+    &:active {
         box-shadow:
             rgb(255 255 255) 0 0 0 0,
             var(--input-shadow-focus),
@@ -59,22 +60,6 @@
     }
 }
 
-.primary {
-    background: var(--bg-input-color);
-    box-shadow:
-        rgb(255 255 255) 0 0 0 0,
-        var(--input-shadow),
-        rgb(0 0 0 / 10%) 0 1px 3px 0,
-        rgb(0 0 0 / 10%) 0 1px 2px -1px;
-    color: var(--primary-color);
-}
-
-.invert {
-    background: var(--bg-input-color-invert);
-    box-shadow:
-        rgb(255 255 255) 0 0 0 0,
-        var(--input-shadow-invert),
-        rgb(0 0 0 / 10%) 0 1px 3px 0,
-        rgb(0 0 0 / 10%) 0 1px 2px -1px;
-    color: var(--primary-color-invert);
+.placeholder {
+    color: var(--hint-color);
 }
