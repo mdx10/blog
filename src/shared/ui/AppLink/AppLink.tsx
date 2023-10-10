@@ -7,6 +7,7 @@ export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     ACCENT = 'accent',
+    OUTLINE = 'outline',
     INVERT = 'invert',
 }
 

@@ -11,12 +11,12 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: var(--bg-color-invert);
+    background: var(--icon-color);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
 .lds-ellipsis.invert div {
-    background: var(--bg-color);
+    background: var(--icon-color);
 }
 
 .lds-ellipsis div:nth-child(1) {

@@ -32,14 +32,14 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         return (
             <div className={classNames(styles[view], {}, [className])}>
                 <div className={styles.header}>
-                    <div className={styles.user}>
-                        <Avatar src={article?.user.avatar} size={30} />
-                        <span>{article?.user.username}</span>
-                    </div>
+                    <Avatar src={article?.user.avatar} size={32} />
+                    <span className={styles.username}>
+                        {article?.user.username}
+                    </span>
                     <span>{article?.createdAt}</span>
                 </div>
                 <h2 className={styles.title}>{article?.title}</h2>
-                <span className={styles.types}>{article?.type.join(', ')}</span>
+                <h3 className={styles.subtitle}>{article?.subtitle}</h3>
                 <AppImage
                     fallback={<Skeleton width="100%" height={230} />}
                     className={styles.image}
@@ -56,14 +56,14 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     <AppLink
                         // eslint-disable-next-line no-unsafe-optional-chaining
                         to={getRouteArticleDetails(article.id)}
-                        theme={AppLinkTheme.ACCENT}
+                        theme={AppLinkTheme.OUTLINE}
                         target={target}
                     >
-                        Читить статью...
+                        Читать далее...
                     </AppLink>
                     <div className={styles.viewsWrap}>
-                        <span>{article?.views}</span>
                         <EyeIcon className={styles.icon} />
+                        <span>{article?.views}</span>
                     </div>
                 </div>
             </div>

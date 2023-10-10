@@ -17,22 +17,40 @@ export const ArticleListItemSkeleton = (
         return (
             <div className={classNames(styles[view], {}, [className])}>
                 <div className={styles.header}>
-                    <div className={styles.user}>
-                        <Skeleton height={30} width={30} border="50%" />
-                        <Skeleton height={16} width={50} />
-                    </div>
-                    <Skeleton height={16} width={50} />
+                    <Skeleton height={32} width={30} border="50%" />
+                    <Skeleton height={24} width={150} border="32px" />
                 </div>
-                <Skeleton className={styles.title} height={25} width={300} />
-                <Skeleton className={styles.types} height={20} width={80} />
-                <Skeleton className={styles.image} height={200} width="100%" />
+                <Skeleton
+                    className={styles.title}
+                    height={38}
+                    width="100%"
+                    border="8px"
+                />
+                <Skeleton
+                    className={styles.types}
+                    height={27}
+                    width={100}
+                    border="8px"
+                />
+                <Skeleton
+                    className={styles.image}
+                    height={420}
+                    width="100%"
+                    border="32px"
+                />
                 <div className={styles.footer}>
-                    <Skeleton className={styles.image} height={25} width={80} />
+                    <Skeleton
+                        className={styles.image}
+                        height={32}
+                        width={100}
+                        border="32px"
+                    />
                     <div className={styles.viewsWrap}>
                         <Skeleton
                             className={styles.image}
-                            height={25}
-                            width={60}
+                            height={32}
+                            width={100}
+                            border="32px"
                         />
                     </div>
                 </div>
