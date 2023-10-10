@@ -21,10 +21,4 @@ describe('Button', () => {
         const buttonElement = screen.getByRole('button');
         expect(buttonElement).toHaveClass('clear');
     });
-
-    test('applies invert theme to button element', () => {
-        render(<Button theme={ThemeButton.INVERT} />);
-        const buttonElement = screen.getByRole('button');
-        expect(buttonElement).toHaveClass('invert');
-    });
 });

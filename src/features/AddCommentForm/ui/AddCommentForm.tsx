@@ -6,7 +6,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Input } from '@/shared/ui/Input';
-import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getAddCommentFormText } from '../model/selectors/addCommentFormSelectors';
 import {
@@ -54,11 +54,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
                         value={text}
                         readonly={isLoading}
                     />
-                    <Button
-                        theme={ThemeButton.INVERT}
-                        onClick={onSendCommentHandler}
-                        disabled={isLoading}
-                    >
+                    <Button onClick={onSendCommentHandler} disabled={isLoading}>
                         Отправить
                     </Button>
                 </div>

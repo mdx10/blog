@@ -1,6 +1,10 @@
 .button {
     font-size: 14px;
-    padding: 5px 12px;
+    padding: 5px 16px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    height: 38px;
+    color: var(--text-color);
 }
 
 .clear {
@@ -8,21 +12,23 @@
     border: none;
     background: none;
     outline: none;
-}
-
-.invert {
-    color: var(--primary-color-invert);
-    background: var(--bg-color-invert);
+    color: var(--icon-color);
 }
 
 .accent {
-    color: var(--primary-color-invert);
     background: var(--accent-color);
 }
 
+.save {
+    border: 1px solid var(--save-color);
+}
+
+.cancel {
+    border: 1px solid var(--cancel-color);
+}
+
 .primary {
-    color: var(--primary-color);
-    background: var(--bg-color);
+    border: 1px solid var(--icon-color);
 }
 
 .square {

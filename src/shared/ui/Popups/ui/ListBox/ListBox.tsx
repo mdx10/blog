@@ -2,6 +2,7 @@ import { Fragment, useMemo } from 'react';
 import { Listbox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
+import ChevronIcon from '@/shared/assets/icons/right-chevron.svg';
 import styles from './ListBox.module.scss';
 
 export enum ThemeListBox {
@@ -66,6 +67,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 {selectedItem?.content ?? (
                     <span className={styles.placeholder}>{placeholder}</span>
                 )}
+                <ChevronIcon className={styles.icon} />
             </Listbox.Button>
             <Listbox.Options
                 className={classNames(styles.options, {}, [styles[direction]])}

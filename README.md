@@ -113,13 +113,6 @@ export const Clear: Story = {
       theme: ThemeButton.CLEAR,
    },
 };
-
-export const Invert: Story = {
-   args: {
-      children: 'Text',
-      theme: ThemeButton.INVERT,
-   },
-};
 ```
 
 
