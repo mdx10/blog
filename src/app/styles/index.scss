@@ -8,9 +8,10 @@ body {
 }
 
 .app {
-    min-height: 100vh;
-    background: var(--bg-color);
-    color: var(--primary-color);
+    height: 100vh;
+    overflow: auto;
+    background: var(--bg);
+    color: var(--text-color);
     font: var(--font-m);
 }
 
@@ -34,11 +35,10 @@ h2 {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--bg-color);        /* цвет зоны отслеживания */
+    background: var(--light-bg);        /* цвет зоны отслеживания */
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--bg-color-invert);    /* цвет бегунка */
+    background-color: var(--icon-color);    /* цвет бегунка */
     border-radius: 20px;       /* округлось бегунка */
-    border: 1px solid var(--accent-color);  /* отступ вокруг бегунка */
 }

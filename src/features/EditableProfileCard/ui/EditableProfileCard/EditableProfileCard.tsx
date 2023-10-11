@@ -10,7 +10,6 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ValidateProfileError } from '../../model/consts/editableProfileCardConsts';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -18,6 +17,9 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getAuthData } from '@/entities/User';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -42,6 +44,21 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const authData = useSelector(getAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
+
+    const onEdit = useCallback(() => {
+        dispatch(profileActions.setReadonly(false));
+    }, [dispatch]);
+
+    const onCancelEdit = useCallback(() => {
+        dispatch(profileActions.cancelEdit());
+    }, [dispatch]);
+
+    const onSaveEdit = useCallback(() => {
+        dispatch(updateProfileData());
+    }, [dispatch]);
 
     const validateErrorsTranslate = {
         [ValidateProfileError.SERVER_ERROR]: t(
@@ -117,7 +134,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <EditableProfileCardHeader />
             <div>
                 {validateErrors?.length &&
                     validateErrors.map((err) => (
@@ -139,6 +155,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 onChangeUsername={onChangeUsername}
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
+                onEditProfile={canEdit && readonly ? onEdit : undefined}
+                onSaveEdit={!readonly ? onSaveEdit : undefined}
+                onCancelEdit={!readonly ? onCancelEdit : undefined}
                 className={className}
             />
         </DynamicModuleLoader>

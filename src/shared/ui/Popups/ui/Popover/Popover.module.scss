@@ -7,17 +7,14 @@
 .panel {
     position: absolute;
     z-index: 999;
-    background: var(--bg-color-invert);
-    color: var(--primary-color-invert);
-    border-radius: 4px;
-    padding: 12px;
+    background: var(--dark-bg);
+    color: var(--text-color);
+    border-radius: 18px;
+    padding: 16px 16px 16px 0;
+    border: 1px solid var(--accent);
 }
 
 .trigger {
     display: flex;
     align-items: center;
-
-    &:hover {
-        opacity: 0.8;
-    }
 }

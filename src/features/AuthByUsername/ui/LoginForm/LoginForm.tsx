@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input, ThemeInput } from '@/shared/ui/Input';
+import { Input } from '@/shared/ui/Input';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import {
     DynamicModuleLoader,
@@ -55,14 +55,12 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
             >
                 <Input
                     placeholder="Введите логин"
-                    theme={ThemeInput.INVERT}
                     onChange={onChangeUsername}
                     value={username}
                     autoFocus
                 />
                 <Input
                     placeholder="Введите пароль"
-                    theme={ThemeInput.INVERT}
                     onChange={onChangePassword}
                     value={password}
                     type="password"

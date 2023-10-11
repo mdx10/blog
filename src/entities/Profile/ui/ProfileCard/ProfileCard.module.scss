@@ -1,23 +1,47 @@
 .root {
-    padding: 15px;
-    border: 2px solid var(--accent-color);
-    width: 500px;
+    padding: 24px;
+    width: 100%;
+    background: var(--dark-bg);
+    border-radius: 32px;
 }
 
-.editing {
-    border: 2px solid var(--primary-color);
+.header {
+    padding: 16px;
+    margin-bottom: 16px;
+    position: relative;
 }
 
-.data {
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.col {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    width: 50%;
+    gap: 16px;
 }
 
 .loader {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.rightBtn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.leftBtn {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .avatarWrap {

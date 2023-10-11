@@ -1,7 +1,10 @@
 .root {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 32px;
+    background: var(--dark-bg);
+    padding: 24px;
+    border-radius: 32px;
 }
 
 .row {
@@ -11,5 +14,10 @@
 }
 
 .search {
-    min-width: 300px;
+    width: 216px;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column;
 }

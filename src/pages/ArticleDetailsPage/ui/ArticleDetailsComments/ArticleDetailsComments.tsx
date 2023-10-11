@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
@@ -18,6 +19,7 @@ interface ArticleDetailsCommentsProps {
 export const ArticleDetailsComments = memo(
     (props: ArticleDetailsCommentsProps) => {
         const { className, id } = props;
+        const { t } = useTranslation();
         const dispatch = useAppDispatch();
 
         const comments = useSelector(getArticleComments.selectAll);
@@ -36,6 +38,7 @@ export const ArticleDetailsComments = memo(
 
         return (
             <div className={classNames(styles.root, {}, [className])}>
+                <h2 className={styles.title}>{t('commentsTitle')}</h2>
                 <AddCommentForm
                     onSendComment={onSendComment}
                     isLoading={commentsIsLoading}

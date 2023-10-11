@@ -1,6 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '../Button/Button';
+import styles from './Tabs.module.scss';
 
 export interface TabItem {
     value: string;
@@ -23,12 +24,11 @@ export const Tabs = memo((props: TabsProps) => {
         <div className={classNames('', {}, [className])}>
             {tabs.map((tab) => (
                 <Button
+                    className={classNames(styles.tab, {
+                        [styles.active]: tab.value === value,
+                    })}
                     key={tab.value}
-                    theme={
-                        tab.value === value
-                            ? ThemeButton.ACCENT
-                            : ThemeButton.INVERT
-                    }
+                    theme={ThemeButton.CLEAR}
                     onClick={clickHandler(tab)}
                 >
                     {tab.content}

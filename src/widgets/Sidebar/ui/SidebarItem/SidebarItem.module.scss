@@ -3,37 +3,37 @@
     height: 24px;
     fill: currentcolor;
     flex-shrink: 0;
-}
-
-.navLink {
-    height: 40px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color, background-color 0.2s;
-    border-radius: 5px;
-
-    &:hover {
-        opacity: 0.8;
-    }
+    color: var(--icon-color);
 }
 
 .navLink.navLinkActive {
-    color: #fff;
-    background: var(--accent-color-invert);
+    background: linear-gradient(90deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    color: var(--icon-color);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background-color: var(--icon-color);
+        left: 0;
+    }
 }
 
-.collapsed.navLink {
-    width: var(--sidebar-width-collapsed);
-    height: var(--sidebar-width-collapsed);
-    justify-content: center;
-    border-radius: 0;
-    box-shadow: inset 0 -1px 0 0 rgb(218 218 218 / 70%);
+.navLink {
+    width: var(--sidebar-width);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: color, background-color 0.2s;
+    position: relative;
 
-    span {
-        visibility: hidden;
-        width: 0;
-        position: absolute;
+    &:hover {
+        color: var(--accent);
+
+        .navIcon {
+            color: var(--accent);
+        }
     }
 }

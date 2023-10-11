@@ -2,7 +2,7 @@ import { Fragment, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { AppLink, AppLinkTheme } from '../../../AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
 import styles from './Dropdown.module.scss';
 import popupCls from '../../styles/popup.module.scss';
 
@@ -48,7 +48,6 @@ export const Dropdown = memo((props: DropdownProps) => {
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
-                                theme={AppLinkTheme.INVERT}
                             >
                                 {content}
                             </Menu.Item>

@@ -1,4 +1,17 @@
+.icon {
+    path {
+        stroke: var(--icon-color);
+    }
+}
+
 .themeSwitcher {
-    width: 24px;
-    height: 24px;
+    padding: 2px;
+
+    &:hover {
+        .icon {
+            path {
+                stroke: var(--accent);
+            }
+        }
+    }
 }

@@ -56,7 +56,7 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
     );
 
     if (isLoading) {
-        return <Skeleton width="100%" height={120} />;
+        return <Skeleton width="100%" height={120} border="16px" />;
     }
 
     const rating = data?.[0];

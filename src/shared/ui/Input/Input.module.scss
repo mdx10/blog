@@ -1,39 +1,22 @@
 .input {
-    padding: 8px 12px;
+    padding: 8px 16px;
     height: 38px;
-    border-radius: 6px;
+    border-radius: 48px;
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--icon-color);
 
     &::placeholder {
-        color: var(--input-placeholder-color);
+        color: var(--hint-color);
     }
 
     &:focus {
-        box-shadow:
-            rgb(255 255 255) 0 0 0 0,
-            var(--input-shadow-focus),
-            rgb(0 0 0 / 10%) 0 1px 3px 0,
-            rgb(0 0 0 / 10%) 0 1px 2px -1px;
+        border: 2px solid var(--accent);
     }
-}
 
-.primary {
-    background: var(--bg-input-color);
-    box-shadow:
-        rgb(255 255 255) 0 0 0 0,
-        var(--input-shadow),
-        rgb(0 0 0 / 10%) 0 1px 3px 0,
-        rgb(0 0 0 / 10%) 0 1px 2px -1px;
-    color: var(--primary-color);
-}
-
-.invert {
-    background: var(--bg-input-color-invert);
-    box-shadow:
-        rgb(255 255 255) 0 0 0 0,
-        var(--input-shadow-invert),
-        rgb(0 0 0 / 10%) 0 1px 3px 0,
-        rgb(0 0 0 / 10%) 0 1px 2px -1px;
-    color: var(--primary-color-invert);
+    &:read-only {
+        opacity: 0.6;
+    }
 }
 
 .label {

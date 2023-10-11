@@ -16,4 +16,9 @@
 
 .trigger {
     display: flex;
+    color: var(--icon-color);
+
+    &:hover {
+        color: var(--accent);
+    }
 }

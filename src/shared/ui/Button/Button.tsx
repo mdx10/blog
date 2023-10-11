@@ -4,9 +4,10 @@ import styles from './Button.module.scss';
 
 export enum ThemeButton {
     CLEAR = 'clear',
-    INVERT = 'invert',
     ACCENT = 'accent',
     PRIMARY = 'primary',
+    CANCEL = 'cancel',
+    SAVE = 'save',
 }
 
 export enum SizeButton {
@@ -25,7 +26,7 @@ export const Button: FC<ButtonProps> = (props) => {
     const {
         children,
         className,
-        theme = ThemeButton.CLEAR,
+        theme = ThemeButton.PRIMARY,
         square,
         size = SizeButton.M,
         disabled,
