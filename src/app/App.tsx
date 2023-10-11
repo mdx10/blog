@@ -8,6 +8,7 @@ import { getAuthMounted, userActions } from '@/entities/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -27,7 +28,7 @@ export const App = () => {
                     header={<Navbar />}
                     sidebar={<Sidebar />}
                     content={<AppRouter />}
-                    toolbar={<div>123</div>}
+                    toolbar={<ScrollToolbar />}
                 />
             </Suspense>
         </div>

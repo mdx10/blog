@@ -1,0 +1,10 @@
+.root {
+    color: var(--icon-color);
+    opacity: 0.5;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+        opacity: 1;
+    }
+}
