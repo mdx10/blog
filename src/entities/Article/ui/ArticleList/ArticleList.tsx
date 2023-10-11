@@ -15,7 +15,7 @@ interface ArticleListProps {
 }
 
 const getSkeleton = (view: ArticleView) =>
-    new Array(view === ArticleView.GRID ? 9 : 3).fill(0).map((item, index) => (
+    new Array(view === ArticleView.GRID ? 10 : 3).fill(0).map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <ArticleListItemSkeleton key={index} view={view} />
     ));

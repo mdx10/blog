@@ -11,7 +11,7 @@ export const getArticlesPageView = (state: StateSchema) =>
 export const getArticlesPageNum = (state: StateSchema) =>
     state.articlesPage?.page || 1;
 export const getArticlesPageLimit = (state: StateSchema) =>
-    state.articlesPage?.limit || 20;
+    state.articlesPage?.limit || 10;
 export const getArticlesPageHasMore = (state: StateSchema) =>
     state.articlesPage?.hasMore;
 export const getArticlesPageMounted = (state: StateSchema) =>

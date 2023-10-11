@@ -23,12 +23,11 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
     const { className, view, article, target } = props;
+    const textBlock = article?.blocks.find(
+        (block) => block.type === ArticleBlockType.TEXT,
+    ) as ArticleTextBlock;
 
     if (view === ArticleView.LIST) {
-        const textBlock = article?.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT,
-        ) as ArticleTextBlock;
-
         return (
             <div className={classNames(styles[view], {}, [className])}>
                 <div className={styles.header}>
@@ -78,20 +77,28 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             target={target}
         >
             <div className={styles.imageWrapper}>
-                <span className={styles.date}>{article?.createdAt}</span>
                 <AppImage
-                    fallback={<Skeleton width={200} height={200} />}
+                    fallback={<Skeleton width="100%" height={140} />}
                     className={styles.image}
                     src={article?.img}
                     alt={article?.title}
                 />
             </div>
             <div className={styles.infoWrapper}>
-                <span className={styles.types}>{article?.type.join(', ')}</span>
-                <span className={styles.views}>{article?.views}</span>
-                <EyeIcon className={styles.icon} />
+                <h4 className={styles.title}>{article?.title}</h4>
+                <p className={styles.paragraphs}>{textBlock?.paragraphs[0]}</p>
+                <div className={styles.row}>
+                    <span>{article?.createdAt}</span>
+                    <span className={styles.views}>
+                        <EyeIcon className={styles.icon} />
+                        {article?.views}
+                    </span>
+                </div>
+                <span className={styles.username}>
+                    <Avatar src={article?.user.avatar} size={32} />
+                    {article?.user.username}
+                </span>
             </div>
-            <h4 className={styles.title}>{article?.title}</h4>
         </AppLink>
     );
 };

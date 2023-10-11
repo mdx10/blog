@@ -62,12 +62,16 @@ export const ArticleListItemSkeleton = (
         // eslint-disable-next-line no-unsafe-optional-chaining
         <div className={classNames(styles[view], {}, [className])}>
             <div className={styles.imageWrapper}>
-                <Skeleton className={styles.image} height={200} width={200} />
+                <Skeleton className={styles.image} width="100%" height={140} />
             </div>
             <div className={styles.infoWrapper}>
-                <Skeleton height={16} width={130} />
+                <Skeleton
+                    className={styles.title}
+                    height={170}
+                    width="100%"
+                    border="24px"
+                />
             </div>
-            <Skeleton className={styles.title} height={16} width={160} />
         </div>
     );
 };
