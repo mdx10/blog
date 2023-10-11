@@ -8,9 +8,6 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
-import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { ArticleBlock } from '../../model/types/Article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -24,6 +21,7 @@ import {
 } from '../../model/selectors/articleDetails';
 import styles from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -41,7 +39,6 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
-    // const isLoading = true;
 
     useEffect(() => {
         dispatch(fetchArticleById(id));
@@ -71,17 +68,10 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <div className={styles.skeletons}>
-                <Skeleton
-                    className={styles.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
-                />
-                <Skeleton width={300} height={40} />
-                <Skeleton width={100} height={18} />
-                <Skeleton width={100} height={18} />
-                <Skeleton width="100%" height={200} />
-                <Skeleton width="100%" height={200} />
+                <Skeleton width={500} height={32} border="16px" />
+                <Skeleton width={300} height={32} border="16px" />
+                <Skeleton width="100%" height={470} border="16px" />
+                <Skeleton width="100%" height={200} border="16px" />
             </div>
         );
     } else if (error) {
@@ -89,22 +79,14 @@ export const ArticleDetails = (props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={styles.avatarWrap}>
-                    <Avatar
-                        size={200}
-                        src={article?.img}
-                        className={styles.avatar}
-                    />
-                </div>
                 <h1 className={styles.title}>{article?.title}</h1>
-                <div className={styles.info}>
-                    <EyeIcon className={styles.icon} />
-                    {article?.views}
-                </div>
-                <div className={styles.info}>
-                    <CalendarIcon className={styles.icon} />
-                    {article?.createdAt}
-                </div>
+                <h2 className={styles.subtitle}>{article?.subtitle}</h2>
+                <AppImage
+                    fallback={<Skeleton width="100%" height={230} />}
+                    className={styles.image}
+                    src={article?.img}
+                    alt={article?.title}
+                />
                 {article?.blocks.map(renderBlock)}
             </>
         );

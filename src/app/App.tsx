@@ -18,17 +18,6 @@ export const App = () => {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
 
-    // return (
-    //     <div className={classNames('app', {}, [theme])}>
-    //         <Suspense fallback="">
-    //             <Navbar />
-    //             <div className="content-page">
-    //                 <Sidebar />
-    //                 {mounted && <AppRouter />}
-    //             </div>
-    //         </Suspense>
-    //     </div>
-    // );
     if (!mounted) return <PageLoader />;
 
     return (

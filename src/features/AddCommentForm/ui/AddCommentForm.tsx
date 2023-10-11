@@ -45,7 +45,6 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(styles.root, {}, [className])}>
-                <h2 className={styles.title}>Оставить комментарий</h2>
                 <div className={styles.form}>
                     <Input
                         className={styles.input}
