@@ -8,11 +8,12 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import styles from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -37,13 +38,17 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(styles.root, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <ArticleRating articleId={id} />
-                <ArticleRecommendationsList />
-                <ArticleDetailsComments id={id} />
-            </Page>
+            <StickyContentLayout
+                content={
+                    <Page className={classNames(styles.root, {}, [className])}>
+                        <ArticleDetails id={id} />
+                        <ArticleRating articleId={id} />
+                        <ArticleRecommendationsList />
+                        <ArticleDetailsComments id={id} />
+                    </Page>
+                }
+                right={<AdditionalInfoContainer />}
+            />
         </DynamicModuleLoader>
     );
 };
