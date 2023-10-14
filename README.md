@@ -1,4 +1,14 @@
 [![CI](https://github.com/mdx10/blog/actions/workflows/CI.yml/badge.svg)](https://github.com/mdx10/blog/actions/workflows/CI.yml)
+
+
+[Демо](https://animated-tartufo-63c179.netlify.app/)
+```
+log: admin
+pass: 123
+```
+
+----
+
 ## Запуск проекта
 
 ```
