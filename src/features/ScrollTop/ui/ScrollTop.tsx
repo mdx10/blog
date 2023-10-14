@@ -17,9 +17,8 @@ export const ScrollTop = (props: ScrollTopProps) => {
     useEffect(() => {
         const handleScroll = () => setIsVisible(appContainer.scrollTop > 300);
         appContainer.addEventListener('scroll', handleScroll);
-
-        return appContainer.removeEventListener('scroll', handleScroll);
     }, [appContainer]);
+
     const scrollTop = () => {
         appContainer?.scrollTo({ top: 0, behavior: 'smooth' });
     };
